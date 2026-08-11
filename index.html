@@ -7,7 +7,7 @@
     <meta name="description" content="Melrose Pack 615 is a Cub Scout pack for kids in K-5.">
     <title>Melrose Pack 615 | Adventure, confidence, and connection</title>
     <link rel="icon" href="assets/cub-scouts-logo-black.png" type="image/png">
-    <link rel="stylesheet" href="assets/site.css?v=53">
+    <link rel="stylesheet" href="assets/site.css?v=56">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -16,6 +16,13 @@
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqMnN3mRPJpEeCvfcUHTXjDa6xpPGZP8clBb77MVRqcl40Sg/viewform" target="_blank" rel="noopener noreferrer">Join anytime<span class="visually-hidden"> (opens the interest form in a new tab)</span> <span aria-hidden="true">↗</span></a>
       </p>
     </div>
+    <aside class="fair-notice" id="fair-notice" hidden data-until="2026-09-14">
+      <div class="fair-inner">
+        <p><strong>Come and say hello at the Melrose Victorian Fair.</strong> Sunday 13 September. Find our table and meet some of the pack.</p>
+        <button type="button" class="fair-close" id="fair-close" aria-label="Dismiss this notice">&times;</button>
+      </div>
+    </aside>
+
 
     <header class="site-header">
       <div class="header-inner">
@@ -70,19 +77,24 @@
 
       <section class="locality" aria-labelledby="locality-heading">
         <div class="content-wrap">
-          <div class="locality-card">
-            <h2 id="locality-heading">We are the west side pack</h2>
-            <p>Pack 615 generally serves Melrose west of Main Street, and our dens meet on Sunday afternoons.</p>
-            <p class="schools-label">Families in our pack come from</p>
-            <ul class="schools">
-              <li>Roosevelt</li>
-              <li>Lincoln</li>
-              <li>St. Mary&rsquo;s</li>
-              <li>Mystic Valley Charter</li>
-              <li>Melrose Montessori</li>
-            </ul>
-            <p class="locality-note">Melrose has two packs. If you live east of Main Street, <a href="https://www.facebook.com/Melrosepack635" target="_blank" rel="noopener noreferrer">Pack 635</a> is probably the closer fit, and they meet on Thursday evenings. Plenty of families are in whichever pack suits them, so if you are not sure, just ask.</p>
+          <div class="locality-grid">
+            <div class="locality-intro">
+              <p class="eyebrow">Our corner of Melrose</p>
+              <h2 id="locality-heading">Chances are we already know your neighbors.</h2>
+              <p class="locality-detail">Pack 615 is generally the west side of town, and our dens meet on Sunday afternoons. Families come from all over though, so the schools below are a guide rather than a rule.</p>
+            </div>
+            <div class="school-roster">
+              <p class="roster-label">Our families come from</p>
+              <ul class="schools">
+                <li>Roosevelt</li>
+                <li>Lincoln</li>
+                <li>St. Mary&rsquo;s</li>
+                <li>Mystic Valley Charter</li>
+                <li>Melrose Montessori</li>
+              </ul>
+            </div>
           </div>
+          <p class="locality-note">Melrose has two packs. <a href="https://www.facebook.com/Melrosepack635" target="_blank" rel="noopener noreferrer">Pack 635<span class="visually-hidden"> on Facebook, opens in a new tab</span></a> covers the east side and meets Thursday evenings.</p>
         </div>
       </section>
 
@@ -270,5 +282,24 @@
       </div>
       <p class="photo-credit">Museum photograph courtesy of the New England Air Museum. Other photographs from the Scouting America Brand Center.</p>
         </footer>
+      <script>
+      // Time boxed notice. It removes itself once the date passes, so nobody has
+      // to remember to take it down on a site with no maintainer. Dismissal is
+      // remembered per visitor rather than per page load.
+      (function () {
+        var el = document.getElementById('fair-notice');
+        if (!el) return;
+        var until = new Date(el.getAttribute('data-until') + 'T00:00:00');
+        var key = 'p615-fair-2026';
+        var dismissed = false;
+        try { dismissed = localStorage.getItem(key) === '1'; } catch (e) {}
+        if (new Date() >= until || dismissed) { el.remove(); return; }
+        el.hidden = false;
+        document.getElementById('fair-close').addEventListener('click', function () {
+          el.remove();
+          try { localStorage.setItem(key, '1'); } catch (e) {}
+        });
+      })();
+    </script>
   </body>
 </html>

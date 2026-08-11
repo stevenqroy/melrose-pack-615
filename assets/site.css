@@ -282,23 +282,41 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .footer-social { color: var(--pine, #2F5D50); font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(47,93,80,.35); }
 .footer-social:hover { border-bottom-color: var(--pine, #2F5D50); }
 
-/* Which pack, and which schools. The fastest possible signal that this is a
-   neighbourhood thing rather than a national program with a local branch. */
-.locality { background: var(--paper, #FBF7F0); padding: clamp(2rem, 5vw, 3.25rem) 0 0; }
-.locality-card { max-width: 44rem; padding: clamp(1.25rem, 3vw, 1.9rem) clamp(1.25rem, 3vw, 2rem); background: #fff; border: 1px solid var(--line, #E2DCD0); border-left: 4px solid var(--pine, #2F5D50); border-radius: .5rem; }
-.locality-card h2 { font-family: var(--display); font-size: clamp(1.4rem, 3vw, 1.85rem); letter-spacing: -.02em; margin: 0 0 .7rem; }
-.locality-card p { margin: 0 0 .8rem; color: #43555A; line-height: 1.6; }
-.locality-card p:last-child { margin-bottom: 0; }
-.locality-card strong { color: var(--ink, #1C2B2D); }
-.locality-note { font-size: .92rem; padding-top: .8rem; border-top: 1px solid var(--line, #E2DCD0); }
-.locality-note a { color: var(--pine, #2F5D50); font-weight: 700; }
+/* Which pack, and which schools. This is a recognition test, not prose: a
+   parent should pass it in about two seconds. The heading asks the one question
+   every Melrose parent can answer instantly, and the school names are set as a
+   roster to be found, not read. Cream band so the roster card is the brightest
+   thing in the block. */
+.locality { background: var(--cream, #F3ECDF); padding: clamp(2.25rem, 5vw, 3.5rem) 0 clamp(2.5rem, 5vw, 3.75rem); }
+.locality-grid { display: grid; gap: clamp(1.5rem, 4vw, 2.75rem); align-items: center; }
+.locality-intro h2 { max-width: 16ch; margin: 0; font-family: var(--display); font-size: clamp(1.7rem, 4.2vw, 2.5rem); letter-spacing: -.03em; line-height: 1.04; text-wrap: balance; }
+.locality-detail { max-width: 34rem; margin: .85rem 0 0; color: #43555A; line-height: 1.55; }
 
-/* Parents scan for their own school name rather than reading the sentence, so
-   the names are set to be found, not read. */
-.schools-label { font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 700; color: var(--muted, #6B7A76); margin: 1.1rem 0 .55rem !important; }
-.schools { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 .9rem; padding: 0; list-style: none; }
-.schools li {
-  padding: .38rem .75rem; border-radius: .35rem;
-  background: rgba(47,93,80,.08); border: 1px solid rgba(47,93,80,.2);
-  color: var(--ink, #1C2B2D); font-weight: 700; font-size: .92rem; line-height: 1.3;
+/* The roster. White card, pine cap, one school per row. Parents scan for their
+   own school name, so each name is display-serif bold on its own line. */
+.school-roster { padding: clamp(1.1rem, 3vw, 1.5rem) clamp(1.2rem, 3vw, 1.7rem) clamp(.9rem, 2.5vw, 1.25rem); background: var(--white, #FFFDF9); border: 1px solid var(--line, #DED5C6); border-top: .35rem solid var(--pine, #2F5D50); border-radius: .5rem; box-shadow: 0 4px 0 rgba(28, 43, 45, .05); }
+.roster-label { margin: 0 0 .3rem; color: var(--muted, #5C6C69); font-size: .72rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+.schools { margin: 0; padding: 0; list-style: none; }
+.schools li { display: flex; align-items: center; gap: .65rem; padding: .55rem 0; border-bottom: 1px solid var(--line, #DED5C6); color: var(--ink, #1C2B2D); font-family: var(--display); font-size: clamp(1.12rem, 2.8vw, 1.3rem); font-weight: 700; letter-spacing: -.015em; line-height: 1.2; }
+.schools li:last-child { border-bottom: 0; padding-bottom: .2rem; }
+.schools li::before { content: ""; flex: 0 0 auto; width: .48rem; height: .48rem; border-radius: .1rem; background: var(--gold, #E8A317); transform: rotate(45deg); }
+
+/* The other pack. Present and honest, but subordinate: small, muted, below a
+   hairline, mirroring the heading's question so the either/or reads instantly. */
+.locality-note { max-width: 62ch; margin: clamp(1.5rem, 3.5vw, 2rem) 0 0; padding-top: 1rem; border-top: 1px solid rgba(28, 43, 45, .14); color: #4c5e5b; font-size: .92rem; line-height: 1.55; }
+.locality-note a { color: var(--pine, #2F5D50); font-weight: 800; text-underline-offset: .2em; }
+
+@media (min-width: 760px) {
+  .locality-grid { grid-template-columns: minmax(0, 1.08fr) minmax(19rem, .92fr); }
 }
+
+/* Time boxed fair notice. Sits in the flow under the header rather than
+   overlaying, so it never covers content or fights the thumb zone on a phone. */
+.fair-notice { background: var(--gold, #E8A317); color: var(--ink, #1C2B2D); border-bottom: 1px solid rgba(28,43,45,.16); }
+.fair-inner { width: min(1120px, calc(100% - 2.5rem)); margin: 0 auto; display: flex; align-items: center; gap: 1rem; padding: .7rem 0; }
+.fair-inner p { margin: 0; font-size: .92rem; line-height: 1.45; }
+.fair-inner strong { font-weight: 800; }
+.fair-close { flex: 0 0 auto; width: 2rem; height: 2rem; margin-left: auto; border: 1px solid rgba(28,43,45,.3); border-radius: .3rem; background: transparent; color: inherit; font-size: 1.15rem; line-height: 1; cursor: pointer; }
+.fair-close:hover { background: rgba(28,43,45,.08); }
+.fair-close:focus-visible { outline: 2px solid var(--ink, #1C2B2D); outline-offset: 2px; }
+@media (max-width: 520px) { .fair-inner p { font-size: .86rem; } }
