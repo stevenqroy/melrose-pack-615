@@ -194,7 +194,7 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 
 /* --- Below-the-fold guide ------------------------------------------------ */
 .grade-path, .how-it-works { padding: clamp(2rem, 4.5vw, 3rem) 0; background: var(--cream); }
-.grade-path h2, .activities h2, .how-it-works h2, .questions h2, .closing-invitation h2 { max-width: 18ch; margin: 0; font-family: var(--display); font-size: clamp(1.5rem, 4.2vw, 2.7rem); letter-spacing: -.03em; line-height: 1.02; text-wrap: balance; }
+.grade-path h2, .activities h2, .how-it-works h2, .questions h2, .closing-invitation h2 { max-width: 24ch; margin: 0; font-family: var(--display); font-size: clamp(1.5rem, 4.2vw, 2.7rem); letter-spacing: -.03em; line-height: 1.02; text-wrap: balance; }
 .grade-track { position: relative; display: flex; justify-content: space-between; gap: .3rem; margin: clamp(1.5rem, 4vw, 2.4rem) 0 0; padding: 0; list-style: none; }
 .grade-track::before { content: ""; position: absolute; top: calc(clamp(2.7rem, 10vw, 3.6rem) / 2); right: 8%; left: 8%; border-top: 3px dashed rgba(47, 93, 80, .35); }
 .grade-stop { position: relative; display: grid; flex: 1 1 0; min-width: 0; justify-items: center; text-align: center; }
@@ -231,7 +231,7 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .closing-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem 2.5rem; }
 .closing-invitation .eyebrow { color: #ffe1b8; }
 .closing-invitation .button-primary { box-shadow: 0 2px 12px rgba(28, 43, 45, .25); }
-.closing-invitation h2 { max-width: 19ch; }
+.closing-invitation h2 { max-width: 24ch; }
 .closing-invitation .button { flex: 0 0 auto; }
 
 @media (min-width: 620px) {
