@@ -50,7 +50,7 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .hero-photo { width: 100%; height: clamp(15rem, 64vw, 27rem); object-fit: cover; object-position: 50% 42%; }
 .hero-inner { width: min(1120px, calc(100% - 2.5rem)); margin: 0 auto; padding: 1.7rem 0 2rem; display: grid; align-items: center; }
 .hero h1, h2, h3 { font-family: var(--display); letter-spacing: -.035em; text-wrap: balance; }
-.hero h1 { max-width: 14ch; margin: 0; font-size: clamp(2.05rem, 8.6vw, 4rem); line-height: 1; }
+.hero h1 { margin: 0; font-size: clamp(2.05rem, 7.4vw, 3.4rem); line-height: 1.02; }
 .hero h1 .hl { background: linear-gradient(180deg, rgba(232, 163, 23, 0) 66%, rgba(232, 163, 23, .5) 66%, rgba(232, 163, 23, .5) 94%, rgba(232, 163, 23, 0) 94%); }
 .hero-copy-block { max-width: 42rem; }
 .hero-copy { max-width: 37rem; margin: .75rem 0 0; color: #3f504e; font-size: clamp(.95rem, 2.8vw, 1.08rem); line-height: 1.45; }
@@ -120,7 +120,11 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
   .hero-photo { height: 100%; object-position: 58% 45%; }
   .hero-inner { min-height: 29rem; padding: 3rem 0 3.25rem; }
   .hero-copy-block { max-width: 51%; }
-  .hero h1 { max-width: 14.5ch; }
+  /* Two-column range: the copy column is about half the viewport, so the
+     headline tracks the viewport (4.25vw) instead of sitting at the cap. It
+     reaches 3.4rem exactly where the content wrap stops growing, keeping the
+     headline at three balanced lines across the whole range. */
+  .hero h1 { font-size: clamp(2.05rem, 4.25vw, 3.4rem); }
   .hero-actions { display: flex; flex-wrap: wrap; gap: .7rem; }
   .hero-copy-detail { font-size: .92rem; }
   .experience-section, .guide-lead { grid-template-columns: minmax(0, 1.05fr) minmax(18rem, .95fr); }
@@ -177,7 +181,7 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 
 
 /* --- "What is Cub Scouts" explainer -------------------------------------- */
-.learn { background: var(--paper, #FBF7F0); padding: clamp(2.25rem, 5vw, 3.75rem) 0; scroll-margin-top: 5rem; }
+.learn { background: var(--paper, #FBF7F0); padding: clamp(2rem, 4.5vw, 3rem) 0; scroll-margin-top: 5rem; }
 .learn h2 { max-width: 18ch; margin: 0 0 .6rem; font-family: var(--display); font-size: clamp(1.85rem, 4.2vw, 2.7rem); letter-spacing: -.03em; line-height: 1.02; text-wrap: balance; }
 .learn-lede { max-width: 56ch; margin: 0 0 clamp(1.35rem, 3vw, 2rem); color: #43555A; font-size: clamp(.96rem, 1.5vw, 1.08rem); }
 .learn-grid { display: grid; grid-template-columns: 1fr; gap: 1.15rem 2rem; }
@@ -189,7 +193,7 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .learn-grid strong { color: var(--ink, #1C2B2D); }
 
 /* --- Below-the-fold guide ------------------------------------------------ */
-.grade-path, .how-it-works { padding: clamp(2.25rem, 5vw, 3.75rem) 0; background: var(--cream); }
+.grade-path, .how-it-works { padding: clamp(2rem, 4.5vw, 3rem) 0; background: var(--cream); }
 .grade-path h2, .activities h2, .how-it-works h2, .questions h2, .closing-invitation h2 { max-width: 18ch; margin: 0; font-family: var(--display); font-size: clamp(1.85rem, 4.2vw, 2.7rem); letter-spacing: -.03em; line-height: 1.02; text-wrap: balance; }
 .grade-track { position: relative; display: flex; justify-content: space-between; gap: .3rem; margin: clamp(1.5rem, 4vw, 2.4rem) 0 0; padding: 0; list-style: none; }
 .grade-track::before { content: ""; position: absolute; top: calc(clamp(2.7rem, 10vw, 3.6rem) / 2); right: 8%; left: 8%; border-top: 3px dashed rgba(47, 93, 80, .35); }
@@ -201,7 +205,7 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .grade-stop h3 { margin: .55rem 0 0; font-size: clamp(1.02rem, 3.2vw, 1.5rem); letter-spacing: -.02em; line-height: 1; }
 .grade-when { margin: .2rem 0 0; color: var(--muted); font-size: clamp(.55rem, 1.7vw, .7rem); font-weight: 800; letter-spacing: .03em; line-height: 1.2; text-transform: uppercase; }
 
-.activities { padding: clamp(2.5rem, 5vw, 4rem) 0; background: var(--pine); color: var(--paper); }
+.activities { padding: clamp(2rem, 4.5vw, 3.25rem) 0; background: var(--pine); color: var(--paper); }
 .activities .eyebrow { color: #f6c85f; }
 .section-lede { max-width: 51ch; margin: .65rem 0 0; color: #43555a; font-size: clamp(.96rem, 1.5vw, 1.08rem); }
 .activities .section-lede { color: #dce9df; }
@@ -213,13 +217,8 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .ph-tag { color: var(--gold); font-size: .66rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
 .ph-caption { color: var(--paper); font-family: var(--display); font-size: clamp(1rem, 2.4vw, 1.2rem); }
 .how-it-works { background: var(--paper); }
-.steps-list { display: grid; gap: .65rem; margin: clamp(1.25rem, 3vw, 1.8rem) 0 0; padding: 0; list-style: none; counter-reset: steps; }
-.steps-list li { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: .8rem; min-height: 0; padding: .9rem; border: 1px solid var(--line); border-radius: .45rem; background: var(--white); box-shadow: 0 3px 0 rgba(28, 43, 45, .04); counter-increment: steps; }
-.steps-list li::before { content: counter(steps); display: grid; grid-row: 1 / span 2; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--gold); color: var(--ink); font-family: var(--display); font-size: 1.15rem; font-weight: 800; }
-.steps-list h3 { margin: 0; font-family: var(--display); font-size: clamp(1.25rem, 3vw, 1.55rem); letter-spacing: -.025em; line-height: 1.05; }
-.steps-list p { max-width: 30ch; margin: .3rem 0 0; color: var(--muted); font-size: .9rem; line-height: 1.4; }
 
-.questions { padding: clamp(2.25rem, 5vw, 3.75rem) 0; background: var(--cream); }
+.questions { padding: clamp(2rem, 4.5vw, 3rem) 0; background: var(--cream); }
 .questions-list { display: grid; gap: .55rem; margin: clamp(1.25rem, 3vw, 1.8rem) 0 0; }
 .questions-list details { border-left: .25rem solid var(--pine); border-radius: 0 .4rem .4rem 0; background: var(--white); box-shadow: 0 3px 0 rgba(28, 43, 45, .04); }
 .questions-list summary { position: relative; padding: .85rem 2.5rem .85rem 1rem; cursor: pointer; font-family: var(--display); font-size: clamp(1.08rem, 2.5vw, 1.35rem); font-weight: 700; letter-spacing: -.02em; line-height: 1.18; list-style: none; }
@@ -228,7 +227,7 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .questions-list details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
 .questions-list p { max-width: 55ch; margin: 0; padding: 0 1rem .9rem; color: var(--muted); font-size: .92rem; line-height: 1.45; }
 
-.closing-invitation { padding: clamp(2.25rem, 5vw, 3.5rem) 0; background: var(--ember); color: var(--white); }
+.closing-invitation { padding: clamp(2rem, 4.5vw, 3rem) 0; background: var(--ember); color: var(--white); }
 .closing-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem 2.5rem; }
 .closing-invitation .eyebrow { color: #ffe1b8; }
 .closing-invitation .button-primary { box-shadow: 0 2px 12px rgba(28, 43, 45, .25); }
@@ -236,7 +235,6 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .closing-invitation .button { flex: 0 0 auto; }
 
 @media (min-width: 620px) {
-  .steps-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .questions-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -246,7 +244,7 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 
 /* Meeting rhythm and place. Deliberately rhythms, not dates, so the page stays
    true without anyone maintaining it. */
-.meeting-facts { display: grid; gap: 0; margin: clamp(2rem,4vw,2.75rem) 0 0; border-top: 1px solid var(--line,#E2DCD0); }
+.meeting-facts { display: grid; gap: 0; margin: clamp(1.1rem, 2.5vw, 1.6rem) 0 0; border-top: 1px solid var(--line,#E2DCD0); }
 .meeting-facts > div { display: grid; gap: .15rem .9rem; padding: .95rem 0; border-bottom: 1px solid var(--line,#E2DCD0); }
 @media (min-width: 640px) { .meeting-facts > div { grid-template-columns: 11rem 1fr; align-items: baseline; } }
 .meeting-facts dt { font-family: var(--display); font-size: 1.02rem; font-weight: 700; color: var(--ink,#1C2B2D); }
@@ -283,13 +281,14 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .footer-social:hover { border-bottom-color: var(--pine, #2F5D50); }
 
 /* Which pack, and which schools. This is a recognition test, not prose: a
-   parent should pass it in about two seconds. The heading asks the one question
-   every Melrose parent can answer instantly, and the school names are set as a
-   roster to be found, not read. Cream band so the roster card is the brightest
-   thing in the block. */
-.locality { background: var(--cream, #F3ECDF); padding: clamp(2.25rem, 5vw, 3.5rem) 0 clamp(2.5rem, 5vw, 3.75rem); }
+   parent should pass it in about two seconds. The school names lead, set as a
+   roster to be found, not read, and the geography is context beside them.
+   Cream band so the roster card is the brightest thing in the block. The
+   heading measure (22ch) is sized to break the current heading as two balanced
+   lines that fill the intro column, not as a narrow strip. */
+.locality { background: var(--cream, #F3ECDF); padding: clamp(2rem, 4.5vw, 3rem) 0 clamp(2.25rem, 4.5vw, 3.25rem); }
 .locality-grid { display: grid; gap: clamp(1.5rem, 4vw, 2.75rem); align-items: center; }
-.locality-intro h2 { max-width: 16ch; margin: 0; font-family: var(--display); font-size: clamp(1.7rem, 4.2vw, 2.5rem); letter-spacing: -.03em; line-height: 1.04; text-wrap: balance; }
+.locality-intro h2 { max-width: 22ch; margin: 0; font-family: var(--display); font-size: clamp(1.7rem, 4.2vw, 2.5rem); letter-spacing: -.03em; line-height: 1.04; text-wrap: balance; }
 .locality-detail { max-width: 34rem; margin: .85rem 0 0; color: #43555A; line-height: 1.55; }
 
 /* The roster. White card, pine cap, one school per row. Parents scan for their

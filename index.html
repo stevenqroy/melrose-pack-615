@@ -7,7 +7,7 @@
     <meta name="description" content="Melrose Pack 615 is a Cub Scout pack for kids in K-5.">
     <title>Melrose Pack 615 | Adventure, confidence, and connection</title>
     <link rel="icon" href="assets/cub-scouts-logo-black.png" type="image/png">
-    <link rel="stylesheet" href="assets/site.css?v=58">
+    <link rel="stylesheet" href="assets/site.css?v=62">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -110,12 +110,12 @@
               <p>Your child joins a <strong>den</strong> with kids in the same grade. The dens together form the <strong>pack</strong>.</p>
             </article>
             <article>
-              <h3>Learning by doing</h3>
-              <p>Children build, cook, hike, practice first aid, and try something a little harder each time.</p>
-            </article>
-            <article>
               <h3>Families take part</h3>
               <p>Cub Scouts is built around families, not drop-off. Grown-ups join in and learn alongside their children.</p>
+            </article>
+            <article>
+              <h3>Learning by doing</h3>
+              <p>Children build, cook, hike, practice first aid, and try something a little harder each time.</p>
             </article>
             <article>
               <h3>All are welcome</h3>
@@ -127,7 +127,6 @@
 
       <section class="grade-path" aria-labelledby="grades-heading">
         <div class="content-wrap">
-          <p class="eyebrow">A path by grade</p>
           <h2 id="grades-heading">A den for every grade</h2>
           <p class="section-lede">Kids join at their own grade and move up together, and each grade has its own rank name.</p>
           <ol class="grade-track">
@@ -167,9 +166,8 @@
 
       <section class="activities" aria-labelledby="activities-heading">
         <div class="content-wrap">
-          <p class="eyebrow">Real experiences</p>
           <h2 id="activities-heading">What we actually do</h2>
-          <p class="section-lede">Real things to try, make, and explore together.</p>
+          <p class="section-lede">Real things kids and their families try, make, and explore together.</p>
           <div class="activity-grid">
             <article class="activity-card">
               <img src="assets/photos/sa-campfire-smores.jpg" width="1279" height="851" loading="lazy"
@@ -205,22 +203,7 @@
 
       <section class="how-it-works" aria-labelledby="how-heading">
         <div class="content-wrap">
-          <p class="eyebrow">Simple to start</p>
-          <h2 id="how-heading">How it works</h2>
-          <ol class="steps-list">
-            <li>
-              <h3>Join a den</h3>
-              <p>Your child starts with kids in their grade.</p>
-            </li>
-            <li>
-              <h3>Dens meet regularly</h3>
-              <p>Children build skills in a familiar small group.</p>
-            </li>
-            <li>
-              <h3>The pack comes together</h3>
-              <p>Families share the bigger adventures.</p>
-            </li>
-          </ol>
+          <h2 id="how-heading">When and where we meet</h2>
           <dl class="meeting-facts">
             <div><dt>Den meetings</dt><dd>Usually once or twice a month, typically on Sunday afternoons. Each den leader sets their own dates.</dd></div>
             <div><dt>Pack meetings</dt><dd>Usually the third Friday of the month, when every den comes together.</dd></div>
@@ -232,7 +215,6 @@
 
       <section class="questions" aria-labelledby="questions-heading">
         <div class="content-wrap">
-          <p class="eyebrow">The honest questions</p>
           <h2 id="questions-heading">Questions new families ask</h2>
           <div class="questions-list">
             <details>
@@ -298,6 +280,29 @@
         document.getElementById('fair-close').addEventListener('click', function () {
           el.remove();
           try { localStorage.setItem(key, '1'); } catch (e) {}
+        });
+      })();
+    </script>
+    <script>
+      // The mobile menu is a native details element, kept for its free keyboard
+      // semantics. It only lacks light dismissal, so this adds exactly that:
+      // close on any click or tap outside it, on Escape (returning focus to the
+      // toggle), and on activating any link inside it, since same page anchors
+      // scroll without a reload and would otherwise leave the menu open.
+      (function () {
+        var nav = document.querySelector('.mobile-nav');
+        if (!nav) return;
+        var summary = nav.querySelector('summary');
+        document.addEventListener('click', function (e) {
+          if (!nav.open) return;
+          if (!nav.contains(e.target)) { nav.open = false; return; }
+          if (e.target.closest && e.target.closest('.mobile-links a')) { nav.open = false; }
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && nav.open) {
+            nav.open = false;
+            if (summary) summary.focus();
+          }
         });
       })();
     </script>
