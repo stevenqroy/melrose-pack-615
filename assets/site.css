@@ -275,3 +275,6 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .neighbor-card p:last-child { margin-bottom: 0; }
 .neighbor-signoff { font-weight: 600; color: var(--ink, #1C2B2D) !important; }
 .neighbor-signoff a { color: var(--pine, #2F5D50); font-weight: 800; }
+
+/* Photo credit. NEAM gave permission on the understanding it would be credited. */
+.photo-credit { margin: .6rem 0 0; font-size: .74rem; line-height: 1.5; color: var(--muted, #6B7A76); opacity: .9; }
