@@ -44,9 +44,12 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .mobile-links a { padding: .7rem .8rem; border-radius: .35rem; font-weight: 700; text-decoration: none; }
 .mobile-links a:hover { background: var(--cream); }
 
-.hero { position: relative; isolation: isolate; overflow: hidden; background: #fff7e8; color: var(--ink); }
+/* The hero shares the header's paper so the top of the page reads as one
+   surface interrupted only by the photo. Gold is reserved for the headline
+   marker and the primary button, so the seam is pine: structure, not accent. */
+.hero { position: relative; isolation: isolate; overflow: hidden; background: var(--paper); color: var(--ink); }
 .hero-media { position: relative; }
-.hero-media::after { content: ""; position: absolute; right: 0; bottom: 0; left: 0; height: .35rem; background: var(--gold); }
+.hero-media::after { content: ""; position: absolute; right: 0; bottom: 0; left: 0; height: .35rem; background: var(--pine); }
 .hero-photo { width: 100%; height: clamp(15rem, 64vw, 27rem); object-fit: cover; object-position: 50% 42%; }
 .hero-inner { width: min(1120px, calc(100% - 2.5rem)); margin: 0 auto; padding: 1.7rem 0 2rem; display: grid; align-items: center; }
 .hero h1, h2, h3 { font-family: var(--display); letter-spacing: -.035em; text-wrap: balance; }
@@ -63,7 +66,10 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .button-ghost:hover { box-shadow: inset 0 0 0 1.5px var(--paper); background: rgba(251, 247, 240, .12); }
 .button-outline { box-shadow: inset 0 0 0 1.5px var(--pine); color: var(--pine-deep); background: rgba(255, 253, 249, .55); }
 .button-outline:hover { background: var(--white); }
-.hero-copy-detail { max-width: 39rem; margin-top: 1.15rem; padding-top: .9rem; border-top: 1px solid rgba(28, 43, 45, .16); font-size: .86rem; line-height: 1.45; }
+/* The detail is an aside, so its rule is a short editorial dash rather than a
+   full-width hairline: a pause, not another band boundary in the stack. */
+.hero-copy-detail { max-width: 39rem; margin-top: 1.15rem; font-size: .86rem; line-height: 1.45; }
+.hero-copy-detail::before { content: ""; display: block; width: 2.6rem; height: 2px; margin-bottom: .85rem; background: rgba(28, 43, 45, .28); }
 .hero-note { max-width: 34rem; margin: .6rem 0 0; color: #4c5e5b; font-size: .84rem; font-weight: 650; }
 
 .home-intro { position: relative; z-index: 1; margin-top: -4.6rem; padding-bottom: clamp(4rem, 8vw, 6.5rem); }
@@ -251,13 +257,15 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .meeting-facts dd { margin: 0; color: #43555A; line-height: 1.55; }
 
 /* The activities are the hero's one piece of concrete evidence. Set them as a
-   quiet typographic line in the display serif with gold dot separators, so they
-   stay scannable without chip/tag chrome breaking the hero's editorial register.
+   quiet typographic line in the display serif with muted dot separators, so
+   they stay scannable without chip/tag chrome breaking the hero's editorial
+   register. The dots are punctuation, not accent, so they take a faded ink
+   rather than gold: gold in the hero belongs to the marker and the button.
    Items render inline so the list wraps like prose; nowrap keeps each activity
    (and its trailing dot) on one line, so a wrapped line never starts with a dot. */
 .hero-activities { max-width: 39rem; margin: .5rem 0 0; padding: 0; list-style: none; font-family: var(--display); font-size: .98rem; font-weight: 700; letter-spacing: -.01em; line-height: 1.6; color: var(--ink); }
 .hero-activities li { display: inline; white-space: nowrap; }
-.hero-activities li:not(:last-child)::after { content: " \00B7 "; color: var(--gold); font-weight: 800; }
+.hero-activities li:not(:last-child)::after { content: " \00B7 "; color: rgba(28, 43, 45, .42); font-weight: 800; }
 
 /* A named neighbour, which is the only genuinely local thing on the page. It
    sits between the pitch and the explanation deliberately: it is the hinge from
@@ -310,8 +318,11 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 }
 
 /* Time boxed fair notice. Sits in the flow under the header rather than
-   overlaying, so it never covers content or fights the thumb zone on a phone. */
-.fair-notice { background: var(--gold, #E8A317); color: var(--ink, #1C2B2D); border-bottom: 1px solid rgba(28,43,45,.16); }
+   overlaying, so it never covers content or fights the thumb zone on a phone.
+   Cream with a gold trim line rather than a solid gold slab: the old slab was
+   the loudest thing on the screen and stole the primary button's color. The
+   bold lead does the announcing; the trim keeps it clearly not-the-header. */
+.fair-notice { background: var(--cream, #F3ECDF); color: var(--ink, #1C2B2D); border-top: 3px solid var(--gold, #E8A317); border-bottom: 1px solid rgba(28,43,45,.12); }
 .fair-inner { width: min(1120px, calc(100% - 2.5rem)); margin: 0 auto; display: flex; align-items: center; gap: 1rem; padding: .7rem 0; }
 .fair-inner p { margin: 0; font-size: .92rem; line-height: 1.45; }
 .fair-inner strong { font-weight: 800; }
