@@ -251,12 +251,3 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 @media (min-width: 640px) { .meeting-facts > div { grid-template-columns: 11rem 1fr; align-items: baseline; } }
 .meeting-facts dt { font-family: var(--display); font-size: 1.02rem; font-weight: 700; color: var(--ink,#1C2B2D); }
 .meeting-facts dd { margin: 0; color: #43555A; line-height: 1.55; }
-
-/* The activities are the hero's one piece of concrete evidence. Set them as a
-   quiet typographic line in the display serif with gold dot separators, so they
-   stay scannable without chip/tag chrome breaking the hero's editorial register.
-   Items render inline so the list wraps like prose; nowrap keeps each activity
-   (and its trailing dot) on one line, so a wrapped line never starts with a dot. */
-.hero-activities { max-width: 39rem; margin: .5rem 0 0; padding: 0; list-style: none; font-family: var(--display); font-size: .98rem; font-weight: 700; letter-spacing: -.01em; line-height: 1.6; color: var(--ink); }
-.hero-activities li { display: inline; white-space: nowrap; }
-.hero-activities li:not(:last-child)::after { content: " \00B7 "; color: var(--gold); font-weight: 800; }
