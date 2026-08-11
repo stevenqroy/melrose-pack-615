@@ -243,3 +243,11 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 @media (min-width: 900px) {
   .activity-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+
+/* Meeting rhythm and place. Deliberately rhythms, not dates, so the page stays
+   true without anyone maintaining it. */
+.meeting-facts { display: grid; gap: 0; margin: clamp(2rem,4vw,2.75rem) 0 0; border-top: 1px solid var(--line,#E2DCD0); }
+.meeting-facts > div { display: grid; gap: .15rem .9rem; padding: .95rem 0; border-bottom: 1px solid var(--line,#E2DCD0); }
+@media (min-width: 640px) { .meeting-facts > div { grid-template-columns: 11rem 1fr; align-items: baseline; } }
+.meeting-facts dt { font-family: var(--display); font-size: 1.02rem; font-weight: 700; color: var(--ink,#1C2B2D); }
+.meeting-facts dd { margin: 0; color: #43555A; line-height: 1.55; }
