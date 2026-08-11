@@ -182,7 +182,7 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 
 /* --- "What is Cub Scouts" explainer -------------------------------------- */
 .learn { background: var(--paper, #FBF7F0); padding: clamp(2rem, 4.5vw, 3rem) 0; scroll-margin-top: 5rem; }
-.learn h2 { max-width: 18ch; margin: 0 0 .6rem; font-family: var(--display); font-size: clamp(1.85rem, 4.2vw, 2.7rem); letter-spacing: -.03em; line-height: 1.02; text-wrap: balance; }
+.learn h2 { max-width: 30ch; margin: 0 0 .6rem; font-family: var(--display); font-size: clamp(1.85rem, 4.2vw, 2.7rem); letter-spacing: -.03em; line-height: 1.02; text-wrap: balance; }
 .learn-lede { max-width: 56ch; margin: 0 0 clamp(1.35rem, 3vw, 2rem); color: #43555A; font-size: clamp(.96rem, 1.5vw, 1.08rem); }
 .learn-grid { display: grid; grid-template-columns: 1fr; gap: 1.15rem 2rem; }
 @media (min-width: 560px) { .learn-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -319,3 +319,19 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .fair-close:hover { background: rgba(28,43,45,.08); }
 .fair-close:focus-visible { outline: 2px solid var(--ink, #1C2B2D); outline-offset: 2px; }
 @media (max-width: 520px) { .fair-inner p { font-size: .86rem; } }
+
+/* Two packs, side by side. The comparison carries the idea, so the prose does
+   not have to explain it. */
+.locality h2 { max-width: 22ch; margin: 0 0 .55rem; font-family: var(--display); font-size: clamp(1.7rem, 3.8vw, 2.5rem); letter-spacing: -.03em; line-height: 1.05; text-wrap: balance; }
+.locality-lede { max-width: 52ch; margin: 0 0 1.4rem; color: #43555A; line-height: 1.6; }
+.pack-compare { display: grid; gap: .8rem; grid-template-columns: 1fr; margin: 0 0 1.2rem; }
+@media (min-width: 560px) { .pack-compare { grid-template-columns: 1fr 1fr; max-width: 34rem; } }
+.pack-card { padding: .95rem 1.1rem; border: 1px solid var(--line, #E2DCD0); border-radius: .5rem; background: #fff; }
+.pack-card.is-ours { border-color: var(--pine, #2F5D50); border-width: 2px; background: rgba(47,93,80,.045); }
+.pack-name { margin: 0 0 .3rem; font-family: var(--display); font-size: 1.22rem; font-weight: 700; color: var(--ink, #1C2B2D); }
+.pack-name a { color: var(--pine, #2F5D50); }
+.pack-us { display: block; font-family: var(--body); font-size: .72rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: var(--pine, #2F5D50); }
+.pack-side, .pack-day { margin: 0; color: #43555A; font-size: .95rem; line-height: 1.5; }
+.pack-day { font-weight: 700; color: var(--ink, #1C2B2D); }
+.schools-line { max-width: 60ch; margin: 0; color: #43555A; font-size: .95rem; line-height: 1.6; }
+.schools-line .schools-label { font-weight: 700; color: var(--ink, #1C2B2D); }
