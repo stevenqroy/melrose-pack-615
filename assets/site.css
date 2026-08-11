@@ -281,3 +281,14 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 
 .footer-social { color: var(--pine, #2F5D50); font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(47,93,80,.35); }
 .footer-social:hover { border-bottom-color: var(--pine, #2F5D50); }
+
+/* Which pack, and which schools. The fastest possible signal that this is a
+   neighbourhood thing rather than a national program with a local branch. */
+.locality { background: var(--paper, #FBF7F0); padding: clamp(2rem, 5vw, 3.25rem) 0 0; }
+.locality-card { max-width: 44rem; padding: clamp(1.25rem, 3vw, 1.9rem) clamp(1.25rem, 3vw, 2rem); background: #fff; border: 1px solid var(--line, #E2DCD0); border-left: 4px solid var(--pine, #2F5D50); border-radius: .5rem; }
+.locality-card h2 { font-family: var(--display); font-size: clamp(1.4rem, 3vw, 1.85rem); letter-spacing: -.02em; margin: 0 0 .7rem; }
+.locality-card p { margin: 0 0 .8rem; color: #43555A; line-height: 1.6; }
+.locality-card p:last-child { margin-bottom: 0; }
+.locality-card strong { color: var(--ink, #1C2B2D); }
+.locality-note { font-size: .92rem; padding-top: .8rem; border-top: 1px solid var(--line, #E2DCD0); }
+.locality-note a { color: var(--pine, #2F5D50); font-weight: 700; }
