@@ -320,18 +320,11 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .fair-close:focus-visible { outline: 2px solid var(--ink, #1C2B2D); outline-offset: 2px; }
 @media (max-width: 520px) { .fair-inner p { font-size: .86rem; } }
 
-/* Two packs, side by side. The comparison carries the idea, so the prose does
-   not have to explain it. */
+
+/* Neighbourhood block. Prose, not a table: the owner wants it plain. */
 .locality h2 { max-width: 22ch; margin: 0 0 .55rem; font-family: var(--display); font-size: clamp(1.7rem, 3.8vw, 2.5rem); letter-spacing: -.03em; line-height: 1.05; text-wrap: balance; }
-.locality-lede { max-width: 52ch; margin: 0 0 1.4rem; color: #43555A; line-height: 1.6; }
-.pack-compare { display: grid; gap: .8rem; grid-template-columns: 1fr; margin: 0 0 1.2rem; }
-@media (min-width: 560px) { .pack-compare { grid-template-columns: 1fr 1fr; max-width: 34rem; } }
-.pack-card { padding: .95rem 1.1rem; border: 1px solid var(--line, #E2DCD0); border-radius: .5rem; background: #fff; }
-.pack-card.is-ours { border-color: var(--pine, #2F5D50); border-width: 2px; background: rgba(47,93,80,.045); }
-.pack-name { margin: 0 0 .3rem; font-family: var(--display); font-size: 1.22rem; font-weight: 700; color: var(--ink, #1C2B2D); }
-.pack-name a { color: var(--pine, #2F5D50); }
-.pack-us { display: block; font-family: var(--body); font-size: .72rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: var(--pine, #2F5D50); }
-.pack-side, .pack-day { margin: 0; color: #43555A; font-size: .95rem; line-height: 1.5; }
-.pack-day { font-weight: 700; color: var(--ink, #1C2B2D); }
-.schools-line { max-width: 60ch; margin: 0; color: #43555A; font-size: .95rem; line-height: 1.6; }
+.locality-lede { max-width: 58ch; margin: 0 0 1rem; color: #43555A; line-height: 1.65; }
+.locality-lede strong { color: var(--ink, #1C2B2D); }
+.locality-lede a { color: var(--pine, #2F5D50); font-weight: 700; }
+.schools-line { max-width: 62ch; margin: 0; color: #43555A; font-size: .95rem; line-height: 1.6; }
 .schools-line .schools-label { font-weight: 700; color: var(--ink, #1C2B2D); }
