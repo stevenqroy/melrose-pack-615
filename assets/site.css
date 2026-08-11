@@ -292,3 +292,13 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .locality-card strong { color: var(--ink, #1C2B2D); }
 .locality-note { font-size: .92rem; padding-top: .8rem; border-top: 1px solid var(--line, #E2DCD0); }
 .locality-note a { color: var(--pine, #2F5D50); font-weight: 700; }
+
+/* Parents scan for their own school name rather than reading the sentence, so
+   the names are set to be found, not read. */
+.schools-label { font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 700; color: var(--muted, #6B7A76); margin: 1.1rem 0 .55rem !important; }
+.schools { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 .9rem; padding: 0; list-style: none; }
+.schools li {
+  padding: .38rem .75rem; border-radius: .35rem;
+  background: rgba(47,93,80,.08); border: 1px solid rgba(47,93,80,.2);
+  color: var(--ink, #1C2B2D); font-weight: 700; font-size: .92rem; line-height: 1.3;
+}
