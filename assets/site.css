@@ -260,3 +260,18 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .hero-activities { max-width: 39rem; margin: .5rem 0 0; padding: 0; list-style: none; font-family: var(--display); font-size: .98rem; font-weight: 700; letter-spacing: -.01em; line-height: 1.6; color: var(--ink); }
 .hero-activities li { display: inline; white-space: nowrap; }
 .hero-activities li:not(:last-child)::after { content: " \00B7 "; color: var(--gold); font-weight: 800; }
+
+/* A named neighbour, which is the only genuinely local thing on the page. It
+   sits between the pitch and the explanation deliberately: it is the hinge from
+   why to what. */
+.neighbor { background: var(--paper, #FBF7F0); padding: clamp(2.5rem, 6vw, 4.5rem) 0; }
+.neighbor-card {
+  max-width: 40rem; margin: 0 auto; padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: #fff; border: 1px solid var(--line, #E2DCD0);
+  border-left: 4px solid var(--gold, #E8A317); border-radius: .5rem;
+}
+.neighbor-card h2 { font-family: var(--display); font-size: clamp(1.6rem, 3.4vw, 2.1rem); letter-spacing: -.02em; margin: 0 0 .9rem; }
+.neighbor-card p { margin: 0 0 .95rem; color: #43555A; line-height: 1.62; }
+.neighbor-card p:last-child { margin-bottom: 0; }
+.neighbor-signoff { font-weight: 600; color: var(--ink, #1C2B2D) !important; }
+.neighbor-signoff a { color: var(--pine, #2F5D50); font-weight: 800; }
