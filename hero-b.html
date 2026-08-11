@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Melrose Pack 615 is a Cub Scout pack for kids in K-5.">
+    <title>Melrose Pack 615 | Adventure, confidence, and connection</title>
+    <link rel="icon" href="assets/cub-scouts-logo-black.png" type="image/png">
+    <link rel="stylesheet" href="assets/site.css?v=22">
+    <style>
+      .hero-b {
+        position: relative;
+        overflow: hidden;
+        background: #fff7e8;
+        color: #1c2b2d;
+      }
+
+      .hero-b::before {
+        position: absolute;
+        top: 1.25rem;
+        right: -3.5rem;
+        width: 9rem;
+        height: 9rem;
+        border: 1.75rem solid rgba(232, 163, 23, .22);
+        border-radius: 50%;
+        content: "";
+        pointer-events: none;
+      }
+
+      .hero-b-stage {
+        position: relative;
+        width: min(1280px, 100%);
+        margin: 0 auto;
+      }
+
+      .hero-b-copy {
+        position: relative;
+        z-index: 1;
+        padding: 1rem 1.25rem 1.15rem;
+      }
+
+      .hero-b-copy::before {
+        display: block;
+        width: 3.5rem;
+        height: .45rem;
+        margin-bottom: .8rem;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #e8a317 0 58%, #c4552b 58% 100%);
+        content: "";
+      }
+
+      .hero-b h1 {
+        max-width: none;
+        margin: 0;
+        color: #1c2b2d;
+        font-family: var(--display);
+        font-size: clamp(1.95rem, 9.8vw, 2.55rem);
+        letter-spacing: -.038em;
+        line-height: .98;
+        text-wrap: balance;
+      }
+
+      .hero-b-lead {
+        max-width: 39rem;
+        margin: .75rem 0 0;
+        color: #3f504e;
+        font-size: clamp(.9rem, 3.9vw, 1.08rem);
+        line-height: 1.42;
+      }
+
+      .hero-b-actions {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: .5rem;
+        margin-top: .9rem;
+      }
+
+      .hero-b .button {
+        min-height: 3.15rem;
+        padding: .55rem .55rem;
+        border-radius: 999px;
+        font-size: .78rem;
+        line-height: 1.15;
+      }
+
+      .hero-b .button-primary {
+        border-color: #bf5028;
+        background: #bf5028;
+        color: #fffdf9;
+        box-shadow: 0 .35rem 0 #913b1d;
+      }
+
+      .hero-b .button-primary:hover {
+        background: #a94320;
+      }
+
+      .hero-b .button-ghost {
+        border-color: #2f5d50;
+        background: #fffdf9;
+        color: #21493e;
+        box-shadow: 0 .35rem 0 rgba(47, 93, 80, .2);
+      }
+
+      .hero-b .button-ghost:hover {
+        border-color: #1e463c;
+        background: #f3ecdf;
+        color: #1e463c;
+      }
+
+      .hero-b-visual {
+        position: relative;
+        margin: 0;
+        border-top: .55rem solid #e8a317;
+        border-bottom: .55rem solid #c4552b;
+        background: #e8a317;
+      }
+
+      .hero-b-visual img {
+        width: 100%;
+        height: clamp(13.5rem, 70vw, 21rem);
+        object-fit: cover;
+        object-position: 50% 48%;
+      }
+
+      .hero-b-detail {
+        position: relative;
+        padding: 1.3rem 1.25rem 1.55rem;
+        background: #f6c85f;
+        color: #1c2b2d;
+      }
+
+      .hero-b-detail::before {
+        position: absolute;
+        top: -1.05rem;
+        left: 1.25rem;
+        width: 2.1rem;
+        height: 2.1rem;
+        border: .45rem solid #fff7e8;
+        border-radius: 50%;
+        background: #2f5d50;
+        content: "";
+      }
+
+      .hero-b-detail .hero-copy-detail {
+        max-width: 43rem;
+        margin: 0;
+        color: #26393a;
+        font-size: .96rem;
+        line-height: 1.55;
+      }
+
+      .hero-b-note {
+        max-width: 34rem;
+        margin: .8rem 0 0;
+        padding-top: .75rem;
+        border-top: 2px solid rgba(28, 43, 45, .2);
+        color: #324443;
+        font-size: .86rem;
+        font-weight: 750;
+      }
+
+      @media (min-width: 560px) {
+        .hero-b-copy,
+        .hero-b-detail {
+          padding-right: 2.5rem;
+          padding-left: 2.5rem;
+        }
+
+        .hero-b-copy {
+          padding-top: 2.25rem;
+          padding-bottom: 2rem;
+        }
+
+        .hero-b-detail::before {
+          left: 2.5rem;
+        }
+
+        .hero-b h1 {
+          max-width: 15ch;
+          font-size: clamp(2.8rem, 7vw, 4.2rem);
+        }
+
+        .hero-b-lead {
+          font-size: 1.08rem;
+        }
+
+        .hero-b-actions {
+          display: flex;
+          flex-wrap: wrap;
+          gap: .7rem;
+        }
+
+        .hero-b .button {
+          min-height: 3.25rem;
+          padding: .65rem 1.1rem;
+          font-size: .88rem;
+        }
+      }
+
+      @media (min-width: 800px) {
+        .hero-b-stage {
+          display: grid;
+          grid-template-columns: minmax(0, 1.08fr) minmax(24rem, .92fr);
+          grid-template-areas:
+            "copy visual"
+            "detail visual";
+          min-height: min(46rem, calc(100vh - 7rem));
+        }
+
+        .hero-b-copy {
+          grid-area: copy;
+          align-self: end;
+          padding: clamp(3rem, 6vw, 5.25rem) clamp(2.5rem, 5vw, 4.75rem) 2rem max(2.5rem, calc((100vw - 1120px) / 2));
+        }
+
+        .hero-b h1 {
+          max-width: 13ch;
+          font-size: clamp(3.3rem, 5.7vw, 5rem);
+        }
+
+        .hero-b-lead {
+          max-width: 35rem;
+          font-size: clamp(1.02rem, 1.5vw, 1.18rem);
+        }
+
+        .hero-b-detail {
+          grid-area: detail;
+          align-self: stretch;
+          padding: 1.8rem clamp(2.5rem, 5vw, 4.75rem) 2.4rem max(2.5rem, calc((100vw - 1120px) / 2));
+        }
+
+        .hero-b-detail::before {
+          left: max(2.5rem, calc((100vw - 1120px) / 2));
+        }
+
+        .hero-b-visual {
+          grid-area: visual;
+          border-top: 0;
+          border-right: .75rem solid #c4552b;
+          border-bottom: 0;
+          border-left: .75rem solid #e8a317;
+        }
+
+        .hero-b-visual img {
+          height: 100%;
+          min-height: 100%;
+          object-position: 50% 50%;
+        }
+      }
+
+      @media (min-width: 1280px) {
+        .hero-b-stage {
+          border-right: 1px solid rgba(28, 43, 45, .1);
+          border-left: 1px solid rgba(28, 43, 45, .1);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero-b *,
+        .hero-b *::before,
+        .hero-b *::after {
+          transition: none !important;
+          animation: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="topbar">
+      <p>Pack 615 is a Melrose Cub Scout pack for boys and girls entering grades K-5.
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqMnN3mRPJpEeCvfcUHTXjDa6xpPGZP8clBb77MVRqcl40Sg/viewform" target="_blank" rel="noopener noreferrer">Join anytime<span class="visually-hidden"> (opens the interest form in a new tab)</span> <span aria-hidden="true">↗</span></a>
+      </p>
+    </div>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-current="page"><img src="assets/cub-scouts-logo-black.png" alt="Cub Scouts"><span class="brand-name">Melrose Cub <span class="brand-break">Scout Pack 615</span></span></a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="#learn">What is Cub Scouts?</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqMnN3mRPJpEeCvfcUHTXjDa6xpPGZP8clBb77MVRqcl40Sg/viewform" target="_blank" rel="noopener noreferrer">Express Interest</a>
+        </nav>
+        <a class="contact-link" href="mailto:">Contact</a>
+        <details class="mobile-nav">
+          <summary aria-label="Menu">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </summary>
+          <nav class="mobile-links" aria-label="Mobile navigation">
+            <a href="index.html" aria-current="page">Home</a>
+            <a href="#learn">What is Cub Scouts?</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqMnN3mRPJpEeCvfcUHTXjDa6xpPGZP8clBb77MVRqcl40Sg/viewform" target="_blank" rel="noopener noreferrer">Express Interest</a>
+            <a href="mailto:">Contact</a>
+          </nav>
+        </details>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero-b" aria-labelledby="home-heading">
+        <div class="hero-b-stage">
+          <div class="hero-b-copy">
+            <h1 id="home-heading">Adventure, confidence, and connection for K-5 kids in Melrose</h1>
+            <p class="hero-b-lead">Get outside, try new things, learn real-life skills, and grow more independent, all while making friends and getting to know families from around the neighborhood.</p>
+            <div class="hero-b-actions">
+              <a class="button button-ghost" href="#learn">Learn about Cub Scouts</a>
+              <a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfqMnN3mRPJpEeCvfcUHTXjDa6xpPGZP8clBb77MVRqcl40Sg/viewform" target="_blank" rel="noopener noreferrer">Express interest<span class="visually-hidden"> (opens in a new tab)</span></a>
+            </div>
+          </div>
+          <figure class="hero-b-visual">
+            <img src="assets/photos/act-outdoors.jpg" width="1200" height="800" alt="A group of Cub Scouts laughing and cheering together on grass on a bright day." fetchpriority="high" decoding="async">
+          </figure>
+          <div class="hero-b-detail">
+            <p class="hero-copy-detail">Dens meet monthly with others in their grade, then come together for bigger Pack-wide adventures throughout the year, including camping, museum sleepovers, community service, the Pinewood Derby, and more.</p>
+            <p class="hero-b-note">Tell us your child’s grade and we’ll take it from there.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="learn" id="learn" aria-labelledby="learn-heading">
+        <div class="content-wrap">
+          <p class="eyebrow">Start here</p>
+          <h2 id="learn-heading">What is Cub Scouts, really?</h2>
+          <p class="learn-lede">If you have never been near Scouting, here is the honest version. What it is, what your child does, and what it asks of you.</p>
+
+          <div class="learn-grid">
+            <article>
+              <h3>It is a small group, by grade</h3>
+              <p>Your child joins a <strong>den</strong>, a small group of kids in the same grade. The dens together make up the <strong>pack</strong>.</p>
+            </article>
+            <article>
+              <h3>Kids do things, not sit and listen</h3>
+              <p>Building, cooking, hiking, knots, first aid, looking after a patch of the neighbourhood. The point is learning by doing something slightly harder than last time.</p>
+            </article>
+            <article>
+              <h3>Each year has a name</h3>
+              <p>Kindergarten is <strong>Lion</strong>, then <strong>Tiger</strong>, <strong>Wolf</strong>, <strong>Bear</strong>, and <strong>Webelos</strong> across fourth and fifth grade. Each one offers its own things to try.</p>
+            </article>
+            <article>
+              <h3>Grown-ups come too</h3>
+              <p>Cub Scouts is built around families, not drop-off. Grown-ups take part throughout, and nobody is expected to arrive knowing how any of it works.</p>
+            </article>
+            <article>
+              <h3>You do not need to be outdoorsy</h3>
+              <p>Curiosity is enough. You can learn alongside your child, ask questions, and find your footing as you go.</p>
+            </article>
+            <article>
+              <h3>Boys and girls, all welcome</h3>
+              <p>Cub Scouts welcomes boys and girls. Dens are grouped by grade, so kids begin with peers their own age.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="grade-path" aria-labelledby="grades-heading">
+        <div class="content-wrap">
+          <p class="eyebrow">A path by grade</p>
+          <h2 id="grades-heading">The grades, side by side.</h2>
+          <div class="grade-grid">
+            <article class="grade-card">
+              <p class="grade-number">Kindergarten</p>
+              <h3>Lion</h3>
+              <p>First discoveries, simple projects, and getting comfortable in a den.</p>
+            </article>
+            <article class="grade-card">
+              <p class="grade-number">1st grade</p>
+              <h3>Tiger</h3>
+              <p>More hands-on adventures alongside a trusted grown-up.</p>
+            </article>
+            <article class="grade-card">
+              <p class="grade-number">2nd grade</p>
+              <h3>Wolf</h3>
+              <p>New skills start to add up as the group tries more together.</p>
+            </article>
+            <article class="grade-card">
+              <p class="grade-number">3rd grade</p>
+              <h3>Bear</h3>
+              <p>More choices and more chances to put practical skills to work.</p>
+            </article>
+            <article class="grade-card">
+              <p class="grade-number">4th-5th grade</p>
+              <h3>Webelos</h3>
+              <p>A two-grade stretch for stronger skills and bigger challenges.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="activities" aria-labelledby="activities-heading">
+        <div class="content-wrap">
+          <p class="eyebrow">Real experiences</p>
+          <h2 id="activities-heading">What we actually do.</h2>
+          <p class="section-lede">The days look different, but they always give kids something real to try together.</p>
+          <div class="activity-photos">
+            <figure>
+              <img src="assets/photos/act-building.jpg" width="1200" height="800" loading="lazy"
+                   alt="A parent and child fitting together a small wooden birdhouse at a campsite picnic table, tents pitched behind them.">
+            </figure>
+            <figure>
+              <img src="assets/photos/act-outdoors.jpg" width="1200" height="800" loading="lazy"
+                   alt="A group of Cub Scouts laughing and cheering together on grass on a bright day.">
+            </figure>
+          </div>
+          <div class="activity-grid">
+            <article class="activity-card">
+              <h3>Camping</h3>
+              <p>Set up a tent, share a meal outdoors, and make room for the unfamiliar.</p>
+            </article>
+            <article class="activity-card">
+              <h3>Museum sleepovers</h3>
+              <p>See a museum after its doors close, with a sleeping bag and your den nearby.</p>
+            </article>
+            <article class="activity-card">
+              <h3>Community service</h3>
+              <p>Lend a hand to projects that make a difference around the community.</p>
+            </article>
+            <article class="activity-card">
+              <h3>The Pinewood Derby</h3>
+              <p>Turn a small block of wood into a car, then watch it make its way down the track.</p>
+            </article>
+            <article class="activity-card">
+              <h3>Den meetings</h3>
+              <p>Build, cook, talk, and try things with the kids in your child’s grade.</p>
+            </article>
+            <article class="activity-card">
+              <h3>Hikes and outdoors</h3>
+              <p>Follow a trail, notice what is around you, and see what you can do outside.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="how-it-works" aria-labelledby="how-heading">
+        <div class="content-wrap">
+          <p class="eyebrow">Simple to start</p>
+          <h2 id="how-heading">How it works.</h2>
+          <ol class="steps-list">
+            <li>
+              <h3>Join a den</h3>
+              <p>Your child starts with kids in their grade.</p>
+            </li>
+            <li>
+              <h3>Dens meet regularly</h3>
+              <p>This is the small-group part of Cub Scouts, where children get to know one another.</p>
+            </li>
+            <li>
+              <h3>The pack comes together</h3>
+              <p>For the bigger adventures, families take part throughout.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="questions" aria-labelledby="questions-heading">
+        <div class="content-wrap">
+          <p class="eyebrow">The honest questions</p>
+          <h2 id="questions-heading">Questions new families ask.</h2>
+          <dl class="questions-list">
+            <div>
+              <dt>Do I have to camp?</dt>
+              <dd>No. Camping is one part of Cub Scouts; families choose how they take part.</dd>
+            </div>
+            <div>
+              <dt>Does my child need to be outdoorsy?</dt>
+              <dd>No. Children are welcome to begin wherever they are, whether they already love the outdoors or are just curious.</dd>
+            </div>
+            <div>
+              <dt>Do I have to volunteer?</dt>
+              <dd>Families take part throughout. Some roles take more time than others, so talk with the pack about what you can offer.</dd>
+            </div>
+            <div>
+              <dt>Can girls join?</dt>
+              <dd>Yes. Cub Scouts welcomes girls and boys.</dd>
+            </div>
+            <div>
+              <dt>What if we have never done anything like this?</dt>
+              <dd>That is okay. No previous Scouting experience is expected, and the first steps are easier when families learn together.</dd>
+            </div>
+            <div>
+              <dt>What does my child actually get out of it?</dt>
+              <dd>They practice practical skills, get comfortable trying unfamiliar things, and spend time with a small group of peers.</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="closing-invitation" aria-labelledby="closing-heading">
+        <div class="content-wrap closing-inner">
+          <div>
+            <p class="eyebrow">When you are ready</p>
+            <h2 id="closing-heading">There is no need to know it all before you reach out.</h2>
+          </div>
+          <a class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfqMnN3mRPJpEeCvfcUHTXjDa6xpPGZP8clBb77MVRqcl40Sg/viewform" target="_blank" rel="noopener noreferrer">Express interest<span class="visually-hidden"> (opens in a new tab)</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>Melrose Pack 615 · Cub Scouts for K-5</p>
+        <a class="footer-contact" href="mailto:">Contact: <span class="tbc">[email to be confirmed]</span></a>
+      </div>
+    </footer>
+  </body>
+</html>
