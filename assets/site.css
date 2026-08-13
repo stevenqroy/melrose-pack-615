@@ -66,10 +66,6 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .button-ghost:hover { box-shadow: inset 0 0 0 1.5px var(--paper); background: rgba(251, 247, 240, .12); }
 .button-outline { box-shadow: inset 0 0 0 1.5px var(--pine); color: var(--pine-deep); background: rgba(255, 253, 249, .55); }
 .button-outline:hover { background: var(--white); }
-/* The detail is an aside, so its rule is a short editorial dash rather than a
-   full-width hairline: a pause, not another band boundary in the stack. */
-.hero-copy-detail { max-width: 39rem; margin-top: 1.15rem; font-size: .86rem; line-height: 1.45; }
-.hero-copy-detail::before { content: ""; display: block; width: 2.6rem; height: 2px; margin-bottom: .85rem; background: rgba(28, 43, 45, .28); }
 .hero-note { max-width: 34rem; margin: .6rem 0 0; color: #4c5e5b; font-size: .84rem; font-weight: 650; }
 
 .home-intro { position: relative; z-index: 1; margin-top: -4.6rem; padding-bottom: clamp(4rem, 8vw, 6.5rem); }
@@ -115,7 +111,7 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .next-step .button-ghost { flex: 0 0 auto; }
 
 .site-footer { border-top: 1px solid var(--line); background: #eee5d7; }
-.footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .8rem 1.5rem; padding: 1.35rem 0; color: var(--muted); font-size: .88rem; }
+.footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .8rem 1.5rem; padding: 1.35rem 0; color: #43555a; font-size: .88rem; }
 .footer-inner p { margin: 0; }
 .footer-contact { color: var(--pine); font-weight: 800; }
 
@@ -132,7 +128,6 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
      headline at three balanced lines across the whole range. */
   .hero h1 { font-size: clamp(2.05rem, 4.25vw, 3.4rem); }
   .hero-actions { display: flex; flex-wrap: wrap; gap: .7rem; }
-  .hero-copy-detail { font-size: .92rem; }
   .experience-section, .guide-lead { grid-template-columns: minmax(0, 1.05fr) minmax(18rem, .95fr); }
   .experience-section > img, .guide-lead > img { height: 100%; }
   .route-grid { grid-template-columns: repeat(2, 1fr); }
@@ -197,6 +192,12 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .grade-stop h3 { margin: .55rem 0 0; font-size: clamp(1.02rem, 3.2vw, 1.5rem); letter-spacing: -.02em; line-height: 1; }
 .grade-when { margin: .2rem 0 0; color: var(--muted); font-size: clamp(.55rem, 1.7vw, .7rem); font-weight: 800; letter-spacing: .03em; line-height: 1.2; text-transform: uppercase; }
 
+@media (max-width: 379px) {
+  .grade-track { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem .5rem; }
+  .grade-track::before { display: none; }
+  .grade-when { display: none; }
+}
+
 .activities { padding: clamp(2rem, 4.5vw, 3.25rem) 0; background: var(--pine); color: var(--paper); }
 .activities .eyebrow { color: #f6c85f; }
 .section-lede { max-width: 51ch; margin: .65rem 0 0; color: #43555a; font-size: clamp(.96rem, 1.5vw, 1.08rem); }
@@ -210,20 +211,24 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .ph-caption { color: var(--paper); font-family: var(--display); font-size: clamp(1rem, 2.4vw, 1.2rem); }
 .how-it-works { background: var(--paper); }
 
-.questions { padding: clamp(2rem, 4.5vw, 3rem) 0; background: var(--cream); }
-.questions-list { display: grid; gap: .55rem; margin: clamp(1.25rem, 3vw, 1.8rem) 0 0; }
+.questions { padding: clamp(2rem, 4.5vw, 3rem) 0; background: var(--paper, #FBF7F0); }
+/* align-items: start stops an opened answer from stretching its row-mate into
+   a tall, mostly empty card on the two-column desktop layout. */
+.questions-list { display: grid; align-items: start; gap: .55rem; margin: clamp(1.25rem, 3vw, 1.8rem) 0 0; }
 .questions-list details { border-left: .25rem solid var(--pine); border-radius: 0 .4rem .4rem 0; background: var(--white); box-shadow: 0 3px 0 rgba(28, 43, 45, .04); }
 .questions-list summary { position: relative; padding: .85rem 2.5rem .85rem 1rem; cursor: pointer; font-family: var(--display); font-size: clamp(1.08rem, 2.5vw, 1.35rem); font-weight: 700; letter-spacing: -.02em; line-height: 1.18; list-style: none; }
 .questions-list summary::-webkit-details-marker { display: none; }
 .questions-list summary::after { content: "+"; position: absolute; top: 50%; right: 1rem; color: var(--ember); font-family: var(--body); font-size: 1.25rem; font-weight: 800; line-height: 1; transform: translateY(-50%); }
 .questions-list details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
 .questions-list p { max-width: 55ch; margin: 0; padding: 0 1rem .9rem; color: var(--muted); font-size: .92rem; line-height: 1.45; }
+.guide-line { margin: 1.4rem 0 0; color: #43555A; font-size: .95rem; }
 
 .closing-invitation { padding: clamp(2rem, 4.5vw, 3rem) 0; background: var(--ember); color: var(--white); }
 .closing-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem 2.5rem; }
 .closing-invitation .eyebrow { color: #ffe1b8; }
 .closing-invitation .button-primary { box-shadow: 0 2px 12px rgba(28, 43, 45, .25); }
 .closing-invitation h2 { max-width: 24ch; }
+.closing-note { margin: .6rem 0 0; color: #ffe1b8; font-family: var(--body); font-size: 1.2rem; font-weight: 700; }
 .closing-invitation .button { flex: 0 0 auto; }
 
 @media (min-width: 620px) {
@@ -258,7 +263,7 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .neighbor-signoff a { color: var(--pine, #2F5D50); font-weight: 800; }
 
 /* Photo credit. NEAM gave permission on the understanding it would be credited. */
-.photo-credit { margin: .6rem 0 0; font-size: .74rem; line-height: 1.5; color: var(--muted, #6B7A76); opacity: .9; }
+.photo-credit { width: min(1120px, calc(100% - 2.5rem)); margin: 0 auto; padding: 0 0 1.35rem; color: #43555a; font-size: .78rem; line-height: 1.5; opacity: 1; }
 
 .footer-social { color: var(--pine, #2F5D50); font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(47,93,80,.35); }
 .footer-social:hover { border-bottom-color: var(--pine, #2F5D50); }
@@ -309,11 +314,13 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 
 /* About block. One home for every pack-specific fact: which pack, which days,
    which schools, where. Prose plus the meeting-facts rows, kept plain. */
-.locality h2 { max-width: 22ch; margin: 0 0 .55rem; font-family: var(--display); font-size: clamp(1.45rem, 3.8vw, 2.5rem); letter-spacing: -.03em; line-height: 1.05; text-wrap: balance; }
+/* Matches the shared section-heading rule above. This is the first heading a
+   reader meets after the hero, so it must not sit a size below the rest. */
+.locality h2 { max-width: 22ch; margin: 0 0 .55rem; font-family: var(--display); font-size: clamp(1.5rem, 4.2vw, 2.7rem); letter-spacing: -.03em; line-height: 1.02; text-wrap: balance; }
 .locality-lede { max-width: 58ch; margin: 0 0 1rem; color: #43555A; line-height: 1.65; }
 .locality-lede strong { color: var(--ink, #1C2B2D); }
 .locality-lede a { color: var(--pine, #2F5D50); font-weight: 700; }
-.schools-line { max-width: 62ch; margin: 0; color: #43555A; font-size: .95rem; line-height: 1.6; }
+.schools-line { max-width: 62ch; margin: 1.1rem 0 0; color: #43555A; font-size: .95rem; line-height: 1.6; }
 .schools-line .schools-label { font-weight: 700; color: var(--ink, #1C2B2D); }
 
 /* On a phone the column is already narrow enough to control measure, so a ch
@@ -323,4 +330,10 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
   .learn h2,
   .grade-path h2, .activities h2, .how-it-works h2, .questions h2, .closing-invitation h2,
   .locality h2 { max-width: none; }
+}
+
+@media print {
+  .skip-link, .fair-notice, .mobile-nav { display: none; }
+  .activities, .closing-invitation { background: none; color: var(--ink); }
+  .activities h3, .closing-invitation h2 { color: var(--ink); }
 }
