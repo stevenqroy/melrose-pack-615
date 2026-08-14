@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex, nofollow">
     <meta name="description" content="Cub Scouts for K-5 kids in and around Melrose: Sunday meetings, camping, the Pinewood Derby, and family adventures.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Melrose Pack 615 | Cub Scouts for K-5 kids">
@@ -17,7 +16,7 @@
     <link rel="canonical" href="https://melrosepack615.com/">
     <title>Melrose Pack 615 | Adventure, confidence, and connection</title>
     <link rel="icon" href="assets/cub-scouts-logo-black.png" type="image/png">
-    <link rel="stylesheet" href="assets/site.css?v=82">
+    <link rel="stylesheet" href="assets/site.css?v=87">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -102,33 +101,111 @@
         <div class="content-wrap">
           <h2 id="activities-heading">What we actually do</h2>
           <div class="activity-grid">
-            <article class="activity-card">
-              <img src="assets/photos/sa-campfire-smores.jpg" width="1279" height="851" loading="lazy"
+            <article class="activity-card" data-flipped="false">
+              <div class="flip" id="flip-camping">
+                <div class="flip-face flip-front">
+                  <span class="flip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v4h-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <img src="assets/photos/sa-campfire-smores.jpg" width="1279" height="851" loading="lazy"
                    alt="A Cub Scout and a parent toasting marshmallows over a campfire in camping chairs.">
-              <h3>Camping</h3>
+                  <h3>Camping</h3>
+                </div>
+                <div class="flip-face flip-back" aria-hidden="true">
+                  <span class="flip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v4h-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="flip-back-title">Camping</span>
+                  <p>Sleep in a tent, cook outdoors, and stay up late with your den.</p>
+                </div>
+              </div>
+              <button class="flip-toggle" type="button" aria-expanded="false" aria-controls="flip-camping">
+                <span class="visually-hidden">Camping. Show what we do.</span>
+              </button>
             </article>
-            <article class="activity-card">
-              <img src="assets/photos/museum-sleepover-neam.jpg" width="1365" height="1024" loading="lazy" alt="Cub Scouts giving thumbs up in front of an Air Force jet at the New England Air Museum.">
-              <h3>Museum sleepovers</h3>
+            <article class="activity-card" data-flipped="false">
+              <div class="flip" id="flip-museum">
+                <div class="flip-face flip-front">
+                  <span class="flip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v4h-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <img src="assets/photos/museum-sleepover-neam.jpg" width="1365" height="1024" loading="lazy" alt="Cub Scouts giving thumbs up in front of an Air Force jet at the New England Air Museum.">
+                  <h3>Museum sleepovers</h3>
+                </div>
+                <div class="flip-face flip-back" aria-hidden="true">
+                  <span class="flip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v4h-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="flip-back-title">Museum sleepovers</span>
+                  <p>Explore a nearby museum after dark, then sleep among the exhibits.</p>
+                </div>
+              </div>
+              <button class="flip-toggle" type="button" aria-expanded="false" aria-controls="flip-museum">
+                <span class="visually-hidden">Museum sleepovers. Show what we do.</span>
+              </button>
             </article>
-            <article class="activity-card">
-              <img src="assets/photos/sa-community-service.jpg" width="1400" height="935" loading="lazy" alt="Cub Scouts carrying bags of donated food to a pickup truck during a collection drive.">
-              <h3>Community service</h3>
+            <article class="activity-card" data-flipped="false">
+              <div class="flip" id="flip-service">
+                <div class="flip-face flip-front">
+                  <span class="flip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v4h-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <img src="assets/photos/sa-community-service.jpg" width="1400" height="935" loading="lazy" alt="Cub Scouts carrying bags of donated food to a pickup truck during a collection drive.">
+                  <h3>Community service</h3>
+                </div>
+                <div class="flip-face flip-back" aria-hidden="true">
+                  <span class="flip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v4h-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="flip-back-title">Community service</span>
+                  <p>Help out around Melrose with food drives and park clean-ups.</p>
+                </div>
+              </div>
+              <button class="flip-toggle" type="button" aria-expanded="false" aria-controls="flip-service">
+                <span class="visually-hidden">Community service. Show what we do.</span>
+              </button>
             </article>
-            <article class="activity-card">
-              <img src="assets/photos/sa-pinewood-derby.jpg" width="1400" height="934" loading="lazy"
+            <article class="activity-card" data-flipped="false">
+              <div class="flip" id="flip-derby">
+                <div class="flip-face flip-front">
+                  <span class="flip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v4h-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <img src="assets/photos/sa-pinewood-derby.jpg" width="1400" height="934" loading="lazy"
                    alt="Hand-painted Pinewood Derby cars lined up on the track before a race.">
-              <h3>Pinewood Derby</h3>
+                  <h3>Pinewood Derby</h3>
+                </div>
+                <div class="flip-face flip-back" aria-hidden="true">
+                  <span class="flip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v4h-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="flip-back-title">Pinewood Derby</span>
+                  <p>Build a race car from a block of pine, then race it on the big track.</p>
+                </div>
+              </div>
+              <button class="flip-toggle" type="button" aria-expanded="false" aria-controls="flip-derby">
+                <span class="visually-hidden">Pinewood Derby. Show what we do.</span>
+              </button>
             </article>
-            <article class="activity-card">
-              <img src="assets/photos/sa-pack-meeting.jpg" width="1400" height="933" loading="lazy"
+            <article class="activity-card" data-flipped="false">
+              <div class="flip" id="flip-games">
+                <div class="flip-face flip-front">
+                  <span class="flip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v4h-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <img src="assets/photos/sa-pack-meeting.jpg" width="1400" height="933" loading="lazy"
                    alt="Cub Scouts leaning over a board game together at a table, grinning.">
-              <h3>Games and projects</h3>
+                  <h3>Games and projects</h3>
+                </div>
+                <div class="flip-face flip-back" aria-hidden="true">
+                  <span class="flip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v4h-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="flip-back-title">Games and projects</span>
+                  <p>Build things, play games, and try something new at every meeting.</p>
+                </div>
+              </div>
+              <button class="flip-toggle" type="button" aria-expanded="false" aria-controls="flip-games">
+                <span class="visually-hidden">Games and projects. Show what we do.</span>
+              </button>
             </article>
-            <article class="activity-card">
-              <img src="assets/photos/sa-hike-trail.jpg" width="1400" height="908" loading="lazy"
+            <article class="activity-card" data-flipped="false">
+              <div class="flip" id="flip-hikes">
+                <div class="flip-face flip-front">
+                  <span class="flip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v4h-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <img src="assets/photos/sa-hike-trail.jpg" width="1400" height="908" loading="lazy"
                    alt="Three Cub Scouts walking down the steps of a trail shelter on a hike.">
-              <h3>Hikes and outdoor days</h3>
+                  <h3>Hikes and outdoor days</h3>
+                </div>
+                <div class="flip-face flip-back" aria-hidden="true">
+                  <span class="flip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v4h-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="flip-back-title">Hikes and outdoor days</span>
+                  <p>Discover local trails and woods right around our community.</p>
+                </div>
+              </div>
+              <button class="flip-toggle" type="button" aria-expanded="false" aria-controls="flip-hikes">
+                <span class="visually-hidden">Hikes and outdoor days. Show what we do.</span>
+              </button>
             </article>
           </div>
         </div>
@@ -309,6 +386,30 @@
           bar.remove();
           try { localStorage.setItem(key, '1'); } catch (e) {}
         });
+      })();
+    </script>
+    <script>
+      // Turning a card over is a state change, so it is driven by a real button
+      // with aria-expanded rather than a click handler on a div. The faces swap
+      // aria-hidden as they turn, so a screen reader is never offered the text
+      // on the side that is facing away.
+      (function () {
+        var cards = document.querySelectorAll('.activity-card');
+        for (var i = 0; i < cards.length; i++) {
+          (function (card) {
+            var btn = card.querySelector('.flip-toggle');
+            var front = card.querySelector('.flip-front');
+            var back = card.querySelector('.flip-back');
+            if (!btn || !front || !back) return;
+            btn.addEventListener('click', function () {
+              var open = card.getAttribute('data-flipped') === 'true';
+              card.setAttribute('data-flipped', open ? 'false' : 'true');
+              btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+              front.setAttribute('aria-hidden', open ? 'false' : 'true');
+              back.setAttribute('aria-hidden', open ? 'true' : 'false');
+            });
+          })(cards[i]);
+        }
       })();
     </script>
     <script>

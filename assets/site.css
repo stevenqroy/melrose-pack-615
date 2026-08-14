@@ -205,10 +205,34 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 .activities .eyebrow { color: #f6c85f; }
 .section-lede { max-width: 51ch; margin: .65rem 0 0; color: #43555a; font-size: clamp(.96rem, 1.5vw, 1.08rem); }
 .activities .section-lede { color: #dce9df; }
-.activity-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; margin-top: clamp(1.1rem, 3vw, 1.6rem); }
-.activity-card { display: flex; flex-direction: column; min-width: 0; overflow: hidden; border: 1px solid rgba(251, 247, 240, .18); border-radius: .7rem; background: rgba(12, 43, 36, .45); }
+/* Every card the same size. grid-auto-rows: 1fr makes each row match the
+   tallest card in it, and the card, the flipper and both faces then stretch to
+   fill, so a two line title cannot make one card taller than its neighbours. */
+.activity-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: .8rem; margin-top: clamp(1.1rem, 3vw, 1.6rem); }
+/* Tap a card to turn it over. The toggle is a real button laid over the whole
+   card rather than a click handler on the card itself, so it is reachable by
+   keyboard and announced as a control. It sits outside the rotating element,
+   which means it stays clickable whichever way round the card is facing. */
+.activity-card { position: relative; display: grid; min-width: 0; perspective: 900px; }
+.flip { position: relative; display: grid; height: 100%; transition: transform .5s cubic-bezier(.2, .7, .3, 1); transform-style: preserve-3d; }
+.activity-card[data-flipped="true"] .flip { transform: rotateY(180deg); }
+.flip-face { position: relative; display: flex; grid-area: 1 / 1; height: 100%; flex-direction: column; overflow: hidden; border: 1px solid rgba(251, 247, 240, .18); border-radius: .7rem; background: rgba(12, 43, 36, .45); backface-visibility: hidden; }
+.flip-back { align-items: center; justify-content: center; padding: 1rem; background: var(--pine-deep); text-align: center; transform: rotateY(180deg); }
+.flip-back p { margin: 0; color: var(--paper); font-size: clamp(.86rem, 2.3vw, 1rem); line-height: 1.45; text-wrap: balance; }
+.flip-toggle { position: absolute; z-index: 2; inset: 0; padding: 0; border: 0; border-radius: .7rem; background: transparent; cursor: pointer; }
+.flip-toggle:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+/* Without a cue a card that turns over just looks like a card, so nobody tries
+   it. A small badge on the corner is enough of a hint, and it lifts on hover
+   where a pointer exists to make the invitation clearer. */
+.flip-hint { position: absolute; top: .55rem; right: .55rem; z-index: 1; display: grid; width: 1.75rem; height: 1.75rem; place-items: center; border-radius: 50%; background: rgba(12, 43, 36, .72); color: var(--paper); transition: background .18s ease, transform .18s ease; }
+.flip-hint svg { width: .95rem; height: .95rem; }
+.activity-card:hover .flip-hint { background: var(--gold); color: var(--ink); transform: scale(1.08); }
+.flip-back-title { margin-bottom: .35rem; color: var(--gold); font-family: var(--body); font-size: .72rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+/* A card that turns over is decoration on top of the meaning, not the meaning
+   itself, so honour a request for less movement and simply swap the faces. */
+@media (prefers-reduced-motion: reduce) { .flip { transition: none; } }
 .activity-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-.activity-card h3 { margin: 0; padding: .6rem .8rem .72rem; font-family: var(--display); font-size: clamp(1rem, 2.6vw, 1.3rem); letter-spacing: -.02em; line-height: 1.12; }
+.activity-card h3 { margin: auto 0 0; padding: .6rem .8rem .72rem; font-family: var(--display); font-size: clamp(1rem, 2.6vw, 1.3rem); letter-spacing: -.02em; line-height: 1.12; }
 .photo-placeholder { display: grid; place-content: center; gap: .35rem; aspect-ratio: 4 / 3; padding: 1rem; text-align: center; background: repeating-linear-gradient(-45deg, rgba(232, 163, 23, .22) 0 14px, rgba(232, 163, 23, .08) 14px 28px); outline: 2px dashed var(--gold); outline-offset: -8px; }
 .ph-tag { color: var(--gold); font-size: .66rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
 .ph-caption { color: var(--paper); font-family: var(--display); font-size: clamp(1rem, 2.4vw, 1.2rem); }

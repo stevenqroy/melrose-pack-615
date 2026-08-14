@@ -1,2 +1,6 @@
+# Launched 2026-08-14. Indexing is now allowed; this file previously
+# disallowed everything while the site was in review.
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://melrosepack615.com/sitemap.xml
