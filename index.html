@@ -95,7 +95,7 @@
             <p class="hero-copy">Kids get outside, try new things, learn real-life skills, and grow more independent. Along the way, they make friends and get to know families from around Melrose.</p>
             <div class="hero-actions">
               <a data-track="interest-form-hero" class="button button-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfqMnN3mRPJpEeCvfcUHTXjDa6xpPGZP8clBb77MVRqcl40Sg/viewform" target="_blank" rel="noopener noreferrer">Tell us you&rsquo;re interested<span class="visually-hidden"> (opens in a new tab)</span></a>
-              <a class="button button-outline" href="#learn">What is Cub Scouts?</a>
+              <a data-track="what-is-cub-scouts" class="button button-outline" href="#learn">What is Cub Scouts?</a>
             </div>
           </div>
         </div>
@@ -390,6 +390,35 @@
             link_url: el.getAttribute('href') || ''
           });
         });
+      })();
+    </script>
+    <script>
+      // Which questions families open, and which activity cards they turn over.
+      // These are the only two places on the page where a visitor tells you what
+      // they are actually worried about, and neither leaves the page, so GA4
+      // cannot see them on its own. Opens only: a close is not a second question.
+      (function () {
+        if (typeof gtag !== 'function') return;
+        var qs = document.querySelectorAll('.questions-list details');
+        for (var i = 0; i < qs.length; i++) {
+          (function (d) {
+            d.addEventListener('toggle', function () {
+              if (!d.open) return;
+              var s = d.querySelector('summary');
+              gtag('event', 'faq_open', { question: s ? s.textContent.trim() : 'unknown' });
+            });
+          })(qs[i]);
+        }
+        var cards = document.querySelectorAll('.activity-card .flip-toggle');
+        for (var j = 0; j < cards.length; j++) {
+          (function (b) {
+            b.addEventListener('click', function () {
+              if (b.getAttribute('aria-expanded') === 'true') return;
+              var h = b.closest('.activity-card').querySelector('h3');
+              gtag('event', 'activity_flip', { activity: h ? h.textContent.trim() : 'unknown' });
+            });
+          })(cards[j]);
+        }
       })();
     </script>
     <script>
