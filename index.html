@@ -16,13 +16,38 @@
     <link rel="canonical" href="https://melrosepack615.com/">
     <title>Melrose Pack 615 | Adventure, confidence, and connection</title>
     <link rel="icon" href="assets/cub-scouts-logo-black.png" type="image/png">
-    <link rel="stylesheet" href="assets/site.css?v=87">
+    <link rel="stylesheet" href="assets/site.css?v=88">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://melrosepack615.com/#organization",
+      "name": "Melrose Cub Scout Pack 615",
+      "alternateName": "Pack 615",
+      "url": "https://melrosepack615.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://melrosepack615.com/assets/cub-scouts-logo-black.png",
+        "width": 512,
+        "height": 512
+      },
+      "email": "pack615cubscouts@gmail.com",
+      "description": "Volunteer-run Cub Scout pack for any kid in kindergarten through fifth grade in Melrose, Massachusetts.",
+      "areaServed": {
+        "@type": "City",
+        "name": "Melrose, Massachusetts"
+      },
+      "sameAs": [
+        "https://www.facebook.com/melrosepack615"
+      ]
+    }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <aside class="fair-notice" id="fair-notice" hidden>
+    <aside class="fair-notice" id="fair-notice">
       <div class="fair-inner">
-        <p id="fair-text"></p>
+        <p id="fair-text"><strong>We&rsquo;ll be at the Melrose Victorian Fair on Sunday, September 13.</strong>Stop by our table and meet a few Pack 615 families.</p>
         <button type="button" class="fair-close" id="fair-close" aria-label="Dismiss this notice">&times;</button>
       </div>
     </aside>
@@ -30,7 +55,7 @@
 
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="index.html" aria-current="page"><img src="assets/cub-scouts-logo-black.png" alt=""><span class="brand-name">Melrose Cub <span class="brand-break">Scout Pack 615</span></span></a>
+        <a class="brand" href="/" aria-current="page"><img src="assets/cub-scouts-logo-black.png" alt=""><span class="brand-name">Melrose Cub <span class="brand-break">Scout Pack 615</span></span></a>
         <nav class="desktop-nav" aria-label="Primary navigation">
           <a href="#learn">What is Cub Scouts?</a>
           <a href="mailto:pack615cubscouts@gmail.com">Contact</a>
@@ -71,7 +96,7 @@
       <section class="locality" aria-labelledby="locality-heading">
         <div class="content-wrap">
           <h2 id="locality-heading">About Pack 615</h2>
-          <div class="upcoming" id="upcoming" hidden>
+          <div class="upcoming" id="upcoming">
             <h3 class="upcoming-title"><svg class="upcoming-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18M8 3v4M16 3v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Coming up</h3>
             <ul class="upcoming-list">
               <li data-until="2026-09-14"
@@ -105,7 +130,7 @@
               <div class="flip" id="flip-camping">
                 <div class="flip-face flip-front">
                   <span class="flip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v4h-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                  <img src="assets/photos/sa-campfire-smores.jpg" width="1279" height="851" loading="lazy"
+                  <img src="assets/photos/sa-campfire-smores.jpg" width="1400" height="933" loading="lazy"
                    alt="A Cub Scout and a parent toasting marshmallows over a campfire in camping chairs.">
                   <h3>Camping</h3>
                 </div>
@@ -175,7 +200,7 @@
               <div class="flip" id="flip-games">
                 <div class="flip-face flip-front">
                   <span class="flip-hint" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v4h-4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-                  <img src="assets/photos/sa-pack-meeting.jpg" width="1400" height="933" loading="lazy"
+                  <img src="assets/photos/sa-pack-meeting.jpg" width="1400" height="934" loading="lazy"
                    alt="Cub Scouts leaning over a board game together at a table, grinning.">
                   <h3>Games and projects</h3>
                 </div>
@@ -377,6 +402,7 @@
         if (dismissed) { bar.remove(); return; }
 
         var p = document.getElementById('fair-text');
+        p.textContent = '';
         var lead = document.createElement('strong');
         lead.textContent = next.getAttribute('data-lead');
         p.appendChild(lead);
