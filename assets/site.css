@@ -117,7 +117,13 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 
 @media (min-width: 700px) {
   .header-inner { min-height: 5rem; }
-  .hero-media { position: absolute; z-index: -1; inset: 0 0 0 auto; width: 46%; }
+  /* The photo stops where every other element on the page stops. It used to
+     bleed to the viewport edge, which on a wide screen left it hanging four
+     hundred pixels past the column the header, the headline and About all
+     share. Below 1120px there is no margin to align to, so nothing changes. */
+  .hero-media { position: absolute; z-index: -1; inset: 0 0 0 auto;
+                right: calc((100% - min(1120px, 100% - 2.5rem)) / 2);
+                width: calc(min(1120px, 100% - 2.5rem) * .46); }
   .hero-media::after { top: 0; right: auto; bottom: 0; left: 0; width: .35rem; height: auto; }
   /* Anchored to the left edge of the photo, not its centre. The desktop column
      is narrow enough that a centred crop cut the girl in the green hoodie out of
