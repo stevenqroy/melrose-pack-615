@@ -50,6 +50,8 @@
       gtag('js', new Date());
       gtag('config', 'G-9PP2PN8PCG');
     </script>
+    <script data-goatcounter="https://melrosepack615.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -382,10 +384,24 @@
       // same for all four. Uses the click event rather than a wrapper so the
       // link keeps working when analytics is blocked or fails to load.
       (function () {
+      // Both counters are fed from the same label, so there is one list of
+      // names to maintain rather than two that drift apart. Either can be
+      // removed by deleting its script tag; this keeps working with one, the
+      // other, or neither.
+      function track(name, detail) {
+        if (typeof gtag === 'function') {
+          gtag('event', name, detail || {});
+        }
+        if (window.goatcounter && typeof window.goatcounter.count === 'function') {
+          var label = (detail && (detail.link_name || detail.question || detail.activity)) || name;
+          window.goatcounter.count({ path: name + ': ' + label, title: label, event: true });
+        }
+      }
+      window.__p615track = track;
         document.addEventListener('click', function (e) {
           var el = e.target.closest && e.target.closest('[data-track]');
-          if (!el || typeof gtag !== 'function') return;
-          gtag('event', 'link_click', {
+          if (!el) return;
+          track('link_click', {
             link_name: el.getAttribute('data-track'),
             link_url: el.getAttribute('href') || ''
           });
@@ -398,14 +414,14 @@
       // they are actually worried about, and neither leaves the page, so GA4
       // cannot see them on its own. Opens only: a close is not a second question.
       (function () {
-        if (typeof gtag !== 'function') return;
+        var track = window.__p615track || function () {};
         var qs = document.querySelectorAll('.questions-list details');
         for (var i = 0; i < qs.length; i++) {
           (function (d) {
             d.addEventListener('toggle', function () {
               if (!d.open) return;
               var s = d.querySelector('summary');
-              gtag('event', 'faq_open', { question: s ? s.textContent.trim() : 'unknown' });
+              track('faq_open', { question: s ? s.textContent.trim() : 'unknown' });
             });
           })(qs[i]);
         }
@@ -415,7 +431,7 @@
             b.addEventListener('click', function () {
               if (b.getAttribute('aria-expanded') === 'true') return;
               var h = b.closest('.activity-card').querySelector('h3');
-              gtag('event', 'activity_flip', { activity: h ? h.textContent.trim() : 'unknown' });
+              track('activity_flip', { activity: h ? h.textContent.trim() : 'unknown' });
             });
           })(cards[j]);
         }
