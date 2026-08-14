@@ -128,7 +128,12 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
   /* Anchored to the left edge of the photo, not its centre. The desktop column
      is narrow enough that a centred crop cut the girl in the green hoodie out of
      frame, leaving a row of boys. The left edge keeps her in every time. */
-  .hero-photo { height: 100%; object-position: 0% 45%; }
+  /* From 700px up the photo is a narrow column, so it uses a crop made for
+     it: the four left-hand children, framed deliberately rather than
+     sliced out of a seven-child banner. Centred, so the trimming that cover
+     still does falls evenly on the two outer children instead of removing
+     one. Below 700px the full banner is used and is unaffected. */
+  .hero-photo { height: 100%; object-position: 50% 45%; }
   .hero-inner { min-height: 29rem; padding: 3rem 0 3.25rem; }
   .hero-copy-block { max-width: 51%; }
   /* Two-column range: the copy column is about half the viewport, so the
