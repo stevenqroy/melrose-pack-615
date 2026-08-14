@@ -307,7 +307,9 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
    in the middle of the bar rather than in the middle of what is left over. */
 .fair-inner { position: relative; width: min(1120px, calc(100% - 2.5rem)); margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 1rem; padding: .7rem 2.75rem; text-align: center; }
 .fair-inner p { margin: 0; font-size: .92rem; line-height: 1.45; }
-.fair-inner strong { font-weight: 800; }
+/* The headline sits on its own line and the follow-up beneath it, so the bar
+   reads as a statement plus a nudge rather than one long run of text. */
+.fair-inner strong { display: block; font-weight: 800; }
 .fair-close { position: absolute; top: 50%; right: 0; transform: translateY(-50%); flex: 0 0 auto; width: 2rem; height: 2rem; border: 1px solid rgba(28,43,45,.3); border-radius: .3rem; background: transparent; color: inherit; font-size: 1.15rem; line-height: 1; cursor: pointer; }
 .fair-close:hover { background: rgba(28,43,45,.08); }
 .fair-close:focus-visible { outline: 2px solid var(--ink, #1C2B2D); outline-offset: 2px; }
