@@ -119,7 +119,10 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
   .header-inner { min-height: 5rem; }
   .hero-media { position: absolute; z-index: -1; inset: 0 0 0 auto; width: 46%; }
   .hero-media::after { top: 0; right: auto; bottom: 0; left: 0; width: .35rem; height: auto; }
-  .hero-photo { height: 100%; object-position: 58% 45%; }
+  /* Anchored to the left edge of the photo, not its centre. The desktop column
+     is narrow enough that a centred crop cut the girl in the green hoodie out of
+     frame, leaving a row of boys. The left edge keeps her in every time. */
+  .hero-photo { height: 100%; object-position: 0% 45%; }
   .hero-inner { min-height: 29rem; padding: 3rem 0 3.25rem; }
   .hero-copy-block { max-width: 51%; }
   /* Two-column range: the copy column is about half the viewport, so the
