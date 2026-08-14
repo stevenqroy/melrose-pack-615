@@ -303,10 +303,12 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
    the loudest thing on the screen and stole the primary button's color. The
    bold lead does the announcing; the trim keeps it clearly not-the-header. */
 .fair-notice { background: var(--cream, #F3ECDF); color: var(--ink, #1C2B2D); border-top: 3px solid var(--gold, #E8A317); border-bottom: 1px solid rgba(28,43,45,.12); }
-.fair-inner { width: min(1120px, calc(100% - 2.5rem)); margin: 0 auto; display: flex; align-items: center; gap: 1rem; padding: .7rem 0; }
+/* Centred, with the close button pulled out of the flow so the sentence sits
+   in the middle of the bar rather than in the middle of what is left over. */
+.fair-inner { position: relative; width: min(1120px, calc(100% - 2.5rem)); margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 1rem; padding: .7rem 2.75rem; text-align: center; }
 .fair-inner p { margin: 0; font-size: .92rem; line-height: 1.45; }
 .fair-inner strong { font-weight: 800; }
-.fair-close { flex: 0 0 auto; width: 2rem; height: 2rem; margin-left: auto; border: 1px solid rgba(28,43,45,.3); border-radius: .3rem; background: transparent; color: inherit; font-size: 1.15rem; line-height: 1; cursor: pointer; }
+.fair-close { position: absolute; top: 50%; right: 0; transform: translateY(-50%); flex: 0 0 auto; width: 2rem; height: 2rem; border: 1px solid rgba(28,43,45,.3); border-radius: .3rem; background: transparent; color: inherit; font-size: 1.15rem; line-height: 1; cursor: pointer; }
 .fair-close:hover { background: rgba(28,43,45,.08); }
 .fair-close:focus-visible { outline: 2px solid var(--ink, #1C2B2D); outline-offset: 2px; }
 @media (max-width: 520px) { .fair-inner p { font-size: .86rem; } }
@@ -340,12 +342,11 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline
 
 /* Time boxed events. Each entry carries its own expiry and the block deletes
    itself once the last one passes, so a neglected page shows nothing rather
-   than advertising an event that already happened. */
-.upcoming { margin: 0 0 1.4rem; padding: .95rem 1.1rem 1rem; border-left: .25rem solid var(--ember); border-radius: 0 .4rem .4rem 0; background: var(--white); box-shadow: 0 3px 0 rgba(28, 43, 45, .04); }
-.upcoming-title { margin: 0 0 .6rem; color: var(--ember); font-family: var(--body); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-.upcoming-list { display: grid; gap: .55rem; margin: 0; padding: 0; list-style: none; }
-.upcoming-list li { display: grid; gap: .1rem .9rem; color: #43555A; font-size: .95rem; line-height: 1.45; }
+   than advertising an event that already happened. Date and text share one
+   line: a separate date column cost more width than the dates were worth. */
+.upcoming { margin: 0 0 1.4rem; padding: .9rem 1.1rem .95rem; border-left: .25rem solid var(--ember); border-radius: 0 .4rem .4rem 0; background: var(--white); box-shadow: 0 3px 0 rgba(28, 43, 45, .04); }
+.upcoming-title { display: flex; align-items: center; gap: .4rem; margin: 0 0 .5rem; color: var(--ember); font-family: var(--body); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.upcoming-icon { width: .95rem; height: .95rem; flex: 0 0 auto; }
+.upcoming-list { display: grid; gap: .35rem; margin: 0; padding: 0; list-style: none; }
+.upcoming-list li { color: #43555A; font-size: .95rem; line-height: 1.45; }
 .upcoming-when { color: var(--ink); font-weight: 700; }
-@media (min-width: 620px) {
-  .upcoming-list li { grid-template-columns: 10.5rem minmax(0, 1fr); align-items: baseline; }
-}

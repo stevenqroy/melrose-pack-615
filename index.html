@@ -17,13 +17,13 @@
     <link rel="canonical" href="https://melrosepack615.com/">
     <title>Melrose Pack 615 | Adventure, confidence, and connection</title>
     <link rel="icon" href="assets/cub-scouts-logo-black.png" type="image/png">
-    <link rel="stylesheet" href="assets/site.css?v=78">
+    <link rel="stylesheet" href="assets/site.css?v=80">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <aside class="fair-notice" id="fair-notice" hidden data-until="2026-09-14">
+    <aside class="fair-notice" id="fair-notice" hidden>
       <div class="fair-inner">
-        <p><strong>We&rsquo;ll be at the Melrose Victorian Fair on Sunday, September 13.</strong> Stop by our table and meet a few Pack 615 families.</p>
+        <p id="fair-text"></p>
         <button type="button" class="fair-close" id="fair-close" aria-label="Dismiss this notice">&times;</button>
       </div>
     </aside>
@@ -73,11 +73,17 @@
         <div class="content-wrap">
           <h2 id="locality-heading">About Pack 615</h2>
           <div class="upcoming" id="upcoming" hidden>
-            <h3 class="upcoming-title">Coming up</h3>
+            <h3 class="upcoming-title"><svg class="upcoming-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18M8 3v4M16 3v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Coming up</h3>
             <ul class="upcoming-list">
-              <li data-until="2026-09-14"><span class="upcoming-when">Sun 13 Sept</span> <span class="upcoming-what">Information booth at the Melrose Victorian Fair. Come and say hello.</span></li>
-              <li data-until="2026-09-15"><span class="upcoming-when">Mon 14 Sept, 6pm</span> <span class="upcoming-what">Virtual Info Night on Zoom. Ask us anything without leaving the house.</span></li>
-              <li data-until="2026-09-19"><span class="upcoming-when">Fri 18 Sept, 6pm</span> <span class="upcoming-what">Kick-off Registration Meeting at Pine Banks Park. Sign up and pick up hand-me-down uniforms.</span></li>
+              <li data-until="2026-09-14"
+                  data-lead="We&rsquo;ll be at the Melrose Victorian Fair on Sunday, September 13."
+                  data-rest="Stop by our table and meet a few Pack 615 families."><span class="upcoming-when">Sep 13</span> Victorian Fair booth</li>
+              <li data-until="2026-09-15"
+                  data-lead="Virtual Info Night on Zoom, Monday September 14 at 6pm."
+                  data-rest="Ask us anything without leaving the house."><span class="upcoming-when">Sep 14, 6pm</span> Virtual Info Night on Zoom</li>
+              <li data-until="2026-09-19"
+                  data-lead="Registration Night at Pine Banks Park, Friday September 18 at 6pm."
+                  data-rest="Sign up, and pick up hand-me-down uniforms."><span class="upcoming-when">Sep 18, 6pm</span> Registration Night, Pine Banks</li>
             </ul>
           </div>
           <dl class="meeting-facts">
@@ -261,42 +267,48 @@
       <p class="photo-credit">Museum photograph courtesy of the New England Air Museum. Other photographs from the Scouting America Brand Center.</p>
     </footer>
       <script>
-      // Time boxed notice. It removes itself once the date passes, so nobody has
-      // to remember to take it down on a site with no maintainer. Dismissal is
-      // remembered per visitor rather than per page load.
-      (function () {
-        var el = document.getElementById('fair-notice');
-        if (!el) return;
-        var until = new Date(el.getAttribute('data-until') + 'T00:00:00');
-        var key = 'p615-fair-2026';
-        var dismissed = false;
-        try { dismissed = localStorage.getItem(key) === '1'; } catch (e) {}
-        if (new Date() >= until || dismissed) { el.remove(); return; }
-        el.hidden = false;
-        document.getElementById('fair-close').addEventListener('click', function () {
-          el.remove();
-          try { localStorage.setItem(key, '1'); } catch (e) {}
-        });
-      })();
-    </script>
-    <script>
-      // Dated events remove themselves once they are over, and the block removes
-      // itself once the last one goes. The list is hidden until this runs, so the
-      // failure mode is an empty page rather than a page advertising last year.
-      // data-until is the first day the entry should be gone, matching the notice
-      // above, and is parsed as local midnight so it does not expire a day early.
+      // One list of dates drives both the events block and the notice at the
+      // top, so the two can never disagree. An entry disappears the day after
+      // it happens; the block goes when the last one does; the notice always
+      // shows whichever event is next. Both start hidden, so with scripting off
+      // the page says nothing rather than advertising something already over.
+      // data-until is parsed as local midnight: a bare date would be read as
+      // UTC and expire a day early in Eastern time.
       (function () {
         var box = document.getElementById('upcoming');
-        if (!box) return;
-        var now = new Date();
-        var items = box.querySelectorAll('li[data-until]');
-        for (var i = 0; i < items.length; i++) {
-          if (now >= new Date(items[i].getAttribute('data-until') + 'T00:00:00')) {
-            items[i].remove();
+        var live = [];
+        if (box) {
+          var items = box.querySelectorAll('li[data-until]');
+          for (var i = 0; i < items.length; i++) {
+            if (new Date() >= new Date(items[i].getAttribute('data-until') + 'T00:00:00')) {
+              items[i].remove();
+            } else {
+              live.push(items[i]);
+            }
           }
+          if (live.length) { box.hidden = false; } else { box.remove(); }
         }
-        if (!box.querySelector('li')) { box.remove(); return; }
-        box.hidden = false;
+
+        var bar = document.getElementById('fair-notice');
+        if (!bar) return;
+        if (!live.length) { bar.remove(); return; }
+
+        var next = live[0];
+        var key = 'p615-notice-' + next.getAttribute('data-until');
+        var dismissed = false;
+        try { dismissed = localStorage.getItem(key) === '1'; } catch (e) {}
+        if (dismissed) { bar.remove(); return; }
+
+        var p = document.getElementById('fair-text');
+        var lead = document.createElement('strong');
+        lead.textContent = next.getAttribute('data-lead');
+        p.appendChild(lead);
+        p.appendChild(document.createTextNode(' ' + next.getAttribute('data-rest')));
+        bar.hidden = false;
+        document.getElementById('fair-close').addEventListener('click', function () {
+          bar.remove();
+          try { localStorage.setItem(key, '1'); } catch (e) {}
+        });
       })();
     </script>
     <script>
