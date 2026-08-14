@@ -17,7 +17,7 @@
     <link rel="canonical" href="https://melrosepack615.com/">
     <title>Melrose Pack 615 | Adventure, confidence, and connection</title>
     <link rel="icon" href="assets/cub-scouts-logo-black.png" type="image/png">
-    <link rel="stylesheet" href="assets/site.css?v=77">
+    <link rel="stylesheet" href="assets/site.css?v=78">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -72,6 +72,14 @@
       <section class="locality" aria-labelledby="locality-heading">
         <div class="content-wrap">
           <h2 id="locality-heading">About Pack 615</h2>
+          <div class="upcoming" id="upcoming" hidden>
+            <h3 class="upcoming-title">Coming up</h3>
+            <ul class="upcoming-list">
+              <li data-until="2026-09-14"><span class="upcoming-when">Sun 13 Sept</span> <span class="upcoming-what">Information booth at the Melrose Victorian Fair. Come and say hello.</span></li>
+              <li data-until="2026-09-15"><span class="upcoming-when">Mon 14 Sept, 6pm</span> <span class="upcoming-what">Virtual Info Night on Zoom. Ask us anything without leaving the house.</span></li>
+              <li data-until="2026-09-19"><span class="upcoming-when">Fri 18 Sept, 6pm</span> <span class="upcoming-what">Kick-off Registration Meeting at Pine Banks Park. Sign up and pick up hand-me-down uniforms.</span></li>
+            </ul>
+          </div>
           <dl class="meeting-facts">
             <div><dt>Den meetings</dt><dd>About once a month on Sunday afternoons, for 60 to 90 minutes. Your den leader sets the exact dates.</dd></div>
             <div><dt>Pack events</dt><dd>The whole pack gets together 10 to 12 times a year for things like camping trips, the Pinewood Derby, a museum overnight, and service days.</dd></div>
@@ -269,6 +277,26 @@
           el.remove();
           try { localStorage.setItem(key, '1'); } catch (e) {}
         });
+      })();
+    </script>
+    <script>
+      // Dated events remove themselves once they are over, and the block removes
+      // itself once the last one goes. The list is hidden until this runs, so the
+      // failure mode is an empty page rather than a page advertising last year.
+      // data-until is the first day the entry should be gone, matching the notice
+      // above, and is parsed as local midnight so it does not expire a day early.
+      (function () {
+        var box = document.getElementById('upcoming');
+        if (!box) return;
+        var now = new Date();
+        var items = box.querySelectorAll('li[data-until]');
+        for (var i = 0; i < items.length; i++) {
+          if (now >= new Date(items[i].getAttribute('data-until') + 'T00:00:00')) {
+            items[i].remove();
+          }
+        }
+        if (!box.querySelector('li')) { box.remove(); return; }
+        box.hidden = false;
       })();
     </script>
     <script>
