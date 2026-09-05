@@ -26,24 +26,13 @@
          tags rather than as links, and competed with the two fork cards
          directly above it. The fork is the decision on this page; this is a
          table of contents and should look like one. */
-      /* Contents list. Pills read as filters; four bare labels read as nothing
-         at all, since the four sections are a mix of things to pay for and
-         things to know. Each row now carries what it costs or what it is, so
-         the list explains itself before anyone clicks. Deliberately quieter
-         than the fork above it: hairlines, no shadow, no fill. */
-      .jump { margin: 2.2rem 0 0; }
-      .jump-label { margin: 0 0 .6rem; color: var(--muted); font-size: .8rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
-      .jump-list { margin: 0; padding: 0; list-style: none; border: 1px solid var(--line); border-radius: .7rem; overflow: hidden; background: var(--white); }
-      @media (min-width: 640px) { .jump-list { display: grid; grid-template-columns: 1fr 1fr; } }
-      .jump-list li + li { border-top: 1px solid var(--line); }
+      /* Grouped by purpose, because the four destinations are not peers: two
+         are optional payments, one is a thing you might do, one is reference.
+         Any flat list of four equals misrepresents them however it is styled,
+         which is why a pill row, a dot-separated line and a bordered grid all
+         failed. Underlined text keeps this quieter than the two fork cards. */
       @media (min-width: 640px) {
-        .jump-list li:nth-child(-n+2) { border-top: 0; }
-        .jump-list li:nth-child(2n) { border-left: 1px solid var(--line); }
-      }
-      .jump-list a { display: flex; flex-wrap: wrap; align-items: baseline; gap: .1rem .6rem; min-height: 3rem; padding: .8rem 1.1rem; color: var(--ink); text-decoration: none; transition: background .16s ease; }
-      .jump-list a:hover { background: var(--cream); }
-      .jump-name { font-size: .95rem; font-weight: 800; color: var(--pine-deep); }
-      .jump-meta { color: var(--muted); font-size: .85rem; }
+            }
 
       .trip-card { display: grid; gap: 0; border: 1px solid var(--line); border-radius: .9rem; background: var(--white); box-shadow: 0 6px 22px rgba(28, 43, 45, .06); overflow: hidden; }
       @media (min-width: 760px) { .trip-card { grid-template-columns: 22rem 1fr; } }
@@ -57,12 +46,17 @@
 
       .pay-path { margin: 3.2rem 0 0; scroll-margin-top: 6rem; }
       .path-label { display: block; margin-top: .35rem; color: var(--pine); font-family: var(--body); font-size: .92rem; font-weight: 800; letter-spacing: .01em; }
-      @media (max-width: 460px) { .pay-main .brand-name, .site-header .brand-name { font-size: .95rem; } }
-      .pay-nav { display: flex; align-items: center; gap: .5rem; font-size: .88rem; font-weight: 700; }
+      /* Gold on this site means the one thing we want you to do, and it is
+         Express Interest on every other page. "Email us" answers the question
+         this page provokes, which is a support question, so it is a plain link.
+         Express Interest also matters here now the page is indexable: someone
+         arriving from search may not be ready to pay anything yet. */
+      .pay-nav { display: flex; align-items: center; gap: .3rem; font-size: .88rem; font-weight: 700; }
+      .pay-nav .nav-plain { color: var(--ink); }
+      /* The wordmark was hidden on phones back when this header carried three
+         items. It carries one, so the reason is gone and the pack name stays. */
       .pay-nav a { display: inline-flex; align-items: center; min-height: 2.75rem; padding: .5rem .8rem; white-space: nowrap; border-radius: .45rem; color: var(--ink); text-decoration: none; }
       .pay-nav a:hover { background: var(--cream); }
-      .pay-nav .pay-nav-cta { background: var(--gold); font-weight: 800; }
-      .pay-nav .pay-nav-cta:hover { background: #f2b834; }
       .nav-short { display: inline; }
       .nav-long { display: none; }
       @media (min-width: 560px) { .nav-short { display: none; } .nav-long { display: inline; } }
@@ -70,12 +64,29 @@
       .pay-path > .path-sub { margin: 0 0 1.4rem; color: var(--muted); font-size: 1rem; }
 
       .steps { margin: 0; padding: 0; list-style: none; counter-reset: step; }
-      .steps > li { position: relative; margin: 0 0 1rem; padding: 1.4rem 1.5rem 1.4rem 4.2rem; border: 1px solid var(--line); border-radius: .9rem; background: var(--white); box-shadow: 0 6px 22px rgba(28, 43, 45, .06); }
-      .steps > li::before { counter-increment: step; content: counter(step); position: absolute; top: 1.4rem; left: 1.3rem; display: flex; align-items: center; justify-content: center; width: 2.1rem; height: 2.1rem; border-radius: 50%; background: var(--pine); color: var(--white); font-size: 1rem; font-weight: 800; }
+      .steps > li { position: relative; margin: 0 0 1rem; padding: 1.4rem 1.5rem; border: 1px solid var(--line); border-radius: .9rem; background: var(--white); box-shadow: 0 6px 22px rgba(28, 43, 45, .06); }
+      .steps > li::before { counter-increment: step; content: counter(step); position: absolute; top: 1.4rem; left: 1.3rem; display: none; align-items: center; justify-content: center; width: 2.1rem; height: 2.1rem; border-radius: 50%; background: var(--pine); color: var(--white); font-size: 1rem; font-weight: 800; }
       .steps.single > li::before { content: none; }
       .steps.single > li { padding-left: 1.5rem; }
+      /* The number used to sit in a 4.2rem gutter at every width, which left
+         only 257px of text on a 390px phone. It is now inline with the heading
+         on phones and returns to the gutter when there is room for it. */
+      .steps h3 { display: flex; align-items: center; gap: .6rem; }
+      .steps h3::before { counter-increment: step; content: counter(step); flex: 0 0 auto; display: flex; align-items: center; justify-content: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--pine); color: var(--white); font-family: var(--body); font-size: .9rem; font-weight: 800; }
+      .steps.single h3::before { content: none; }
+      @media (min-width: 640px) {
+        .steps > li { padding-left: 4.2rem; }
+        .steps > li::before { display: flex; }
+        .steps h3::before { content: none; }
+        .steps h3 { display: block; }
+      }
       .steps h3 { margin: 0 0 .3rem; font-family: var(--display); font-size: 1.25rem; font-weight: 700; line-height: 1.25; }
       .step-amount { margin: 0 0 .55rem; color: var(--pine); font-family: var(--display); font-size: 1.7rem; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+      /* Money help, placed beside each amount rather than in a footnote at the
+         bottom. A family who cannot afford the number decides at the number,
+         not four sections later. Quiet enough to skip if it does not apply. */
+      .aid { margin: 0 0 .9rem; padding: .55rem .8rem; border-left: 3px solid var(--gold); border-radius: 0 .35rem .35rem 0; background: var(--cream); color: #43555a; font-size: .88rem; line-height: 1.5; }
+      .aid a { color: var(--pine); font-weight: 800; }
       .amt-sub { font-family: var(--body); font-size: .85rem; font-weight: 700; color: var(--muted); }
       /* Ember measures 4.42:1 on white and 3.82:1 on cream, under the 4.5:1
          small-text minimum. Pine is 7.38:1 and 6.38:1. Scoped here rather than
@@ -85,6 +96,35 @@
       .steps p.step-note:last-of-type { margin-bottom: 1.2rem; }
       .steps .button { align-self: flex-start; }
 
+      .total-line { margin: 1.5rem 0 0; padding: .8rem 1rem; border-radius: .5rem; background: var(--cream); color: var(--ink); font-size: 1rem; }
+      .total-line a { color: var(--pine); font-weight: 800; }
+      .help-mail { font-weight: 800; }
+      .help-mail a { word-break: break-word; }
+      .give-card { margin: 1rem 0 0; padding: 1.2rem 1.5rem; border: 1px solid var(--line); border-radius: .9rem; background: var(--cream); }
+      .give-card p { margin: 0 0 1rem; color: #43555a; font-size: .92rem; line-height: 1.6; }
+      .aid-link { margin: -.15rem 0 .9rem; font-size: .9rem; }
+      .aid-link a { color: var(--pine); font-weight: 800; text-underline-offset: .18em; }
+      .help-card { padding: 1.5rem; border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: .9rem; background: var(--white); box-shadow: 0 6px 22px rgba(28, 43, 45, .06); }
+      .help-card p { margin: 0 0 .85rem; color: var(--muted); font-size: .95rem; line-height: 1.6; }
+      .help-card p strong { color: var(--ink); }
+      .help-card a { color: var(--pine); font-weight: 800; }
+      .help-fund { padding-top: .9rem; border-top: 1px solid var(--line); }
+      .help-card .button { margin-top: .4rem; }
+      .check { margin: 0 0 .9rem; padding: 0 0 0 1.1rem; color: var(--muted); font-size: .95rem; line-height: 1.7; }
+      .check li { padding-left: .2rem; }
+      .opt-tag { display: inline-block; padding: .15rem .5rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--cream); color: var(--muted); font-family: var(--body); font-size: .7rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; vertical-align: middle; }
+      .facts { margin: 0 0 1rem; }
+      .facts > div { display: grid; gap: 0 .9rem; padding: .5rem 0; border-bottom: 1px solid var(--line); }
+      @media (min-width: 460px) { .facts > div { grid-template-columns: 5.5rem minmax(0, 1fr); } }
+      .facts dt { color: var(--muted); font-size: .78rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding-top: .12rem; }
+      .facts dd { margin: 0; color: var(--ink); font-size: .93rem; line-height: 1.5; }
+      .done { margin: .4rem 0 0; padding: .8rem 1.1rem; border-radius: .5rem; background: var(--cream); color: var(--pine-deep); font-size: .95rem; font-weight: 700; }
+      .bring { margin: 2.4rem 0 0; padding: .9rem 1.1rem; border-left: 3px solid var(--pine); border-radius: 0 .4rem .4rem 0; background: var(--white); color: #43555a; font-size: .93rem; }
+      /* The alternate route is an exception, not a peer, so it sits below the
+         main button rather than beside it. Side by side implied a choice
+         between equals and left two cards at ragged heights. */
+      .alt-route { margin: 1rem 0 0; padding-top: .9rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; line-height: 1.55; }
+      .alt-route a { color: var(--pine); font-weight: 800; }
       .aside-note { margin: 1.2rem 0 0; padding: 1.05rem 1.3rem; border-left: 4px solid var(--gold); border-radius: 0 .6rem .6rem 0; background: var(--cream); color: #43555a; font-size: .93rem; }
       .aside-note p { margin: 0; }
       .aside-note a { color: var(--pine); font-weight: 800; }
@@ -120,8 +160,7 @@
       <div class="header-inner">
         <a class="brand" href="/"><img src="../assets/cub-scouts-logo-black.png" alt=""><span class="brand-name">Melrose Cub <span class="brand-break">Scout Pack 615</span></span></a>
         <nav class="pay-nav" aria-label="Primary navigation">
-          <a href="/"><span class="nav-long">Back to the main page</span><span class="nav-short">Home</span></a>
-          <a class="pay-nav-cta" data-track="email-contact-register" href="mailto:pack615cubscouts@gmail.com">Email us</a>
+          <a class="nav-plain" href="/"><span class="nav-long">Back to the main page</span><span class="nav-short">Home</span></a>
         </nav>
       </div>
     </header>
@@ -136,6 +175,8 @@
       <div class="pay-head">
         <h1>Registration</h1>
       </div>
+
+      <p class="total-line"><strong>2026-2027 registration and activity fees: $305 per Scout.</strong> <a data-track="cost-help-top" href="#help">Help with the cost</a></p>
 
       <ul class="pay-fork">
         <li>
@@ -154,74 +195,90 @@
         </li>
       </ul>
 
-      <nav class="jump" aria-label="Also on this page">
-        <p class="jump-label">Also on this page</p>
-        <ul class="jump-list">
-          <li><a data-track="jump-bigtrip" href="#bigtrip"><span class="jump-name">The Big Trip sleepover</span><span class="jump-meta">$70 per person, optional</span></a></li>
-          <li><a data-track="jump-volunteering" href="#volunteering"><span class="jump-name">Volunteering</span><span class="jump-meta">$80, reimbursed by the pack</span></a></li>
-          <li><a data-track="jump-donate" href="#donate"><span class="jump-name">Donate</span><span class="jump-meta">Any amount</span></a></li>
-          <li><a data-track="jump-breakdown" href="#breakdown"><span class="jump-name">Cost breakdown</span><span class="jump-meta">Every charge, and who it goes to</span></a></li>
-        </ul>
-      </nav>
-
       <section class="pay-path" id="new" aria-labelledby="new-heading">
-        <h2 id="new-heading">Welcome to Pack 615<span class="path-label">New Scouts: register and pay</span></h2>
+        <h2 id="new-heading">New Scouts: register and pay<span class="path-label">Welcome to Pack 615!</span></h2>
 
         <ol class="steps">
           <li>
             <h3>Join Scouting America</h3>
             <p class="step-amount">$160 <span class="amt-sub">paid to Scouting America</span></p>
-            <p class="step-note">Membership and the national fee are handled on Scouting America&rsquo;s own site. The unit should read <strong>Pack 0615 Melrose Highlands Congregational Church</strong>, and the application is for a child or youth. The adult options are for <a class="text-link" href="#volunteering">volunteers</a>.</p>
-            <p class="step-note">An invitation to Scoutbook follows by email. That is where badges and progress are recorded.</p>
+            <p class="aid-link"><a data-track="cost-help-national" href="#help">Help with the cost</a></p>
+            <p class="step-note"><strong>This one goes to Scouting America, not to the pack.</strong> You&rsquo;ll register your child and pay on their website. The child or youth application lists our group as Pack 0615 Melrose Highlands Congregational Church, and the adult options are for <a class="text-link" data-track="jump-volunteering" href="#volunteering">volunteers</a>.</p>
+            <p class="step-note">The application also offers <em>Scout Life</em> magazine for $15 a year, if you want it.</p>
+            <p class="step-note">Scoutbook keeps a record of your child&rsquo;s badges and progress. You&rsquo;ll get an invitation by email.</p>
             <a class="button button-primary" data-track="new-step-1-scouting-america" href="https://my.scouting.org/VES/OnlineReg/1.0.0/?tu=UF-MB-227paa0615" target="_blank" rel="noopener noreferrer">Register with Scouting America<span class="visually-hidden"> (opens in a new tab)</span></a>
           </li>
           <li>
             <h3>Pay Pack 615&rsquo;s activity fee</h3>
-            <p class="step-amount">$145<sup class="amt-star">*</sup></p>
-            <p class="step-note">The pack&rsquo;s own fee, covering badges, the Pinewood Derby car kit, campsite fees and materials for meetings. One per Scout.</p>
-            <p class="step-note"><em>Scout Life</em> magazine is offered during the Scouting America application in step 1, at $15.</p>
+            <p class="step-amount">$145</p>
+            <p class="aid-link"><a data-track="cost-help-new" href="#help">Help with the cost</a></p>
+            <p class="step-note">This fee supports Pack 615 and covers badges, a wooden car kit for the Pinewood Derby race, campsite fees and meeting materials.</p>
+            <p class="step-note">The optional <a class="text-link" data-track="jump-bigtrip" href="#bigtrip">Big Trip</a> is booked separately. You can also see the <a class="text-link" data-track="jump-breakdown" href="#breakdown">full cost breakdown</a>.</p>
             <a class="button button-primary" data-track="new-step-2-activity-fee" href="https://cub-scout-pack-615.square.site/product/pack-615-annual-activity-fee-for-new-scouts-2026-2027-/K3UUQYSECRKVDFJDXLRHYE5B" target="_blank" rel="noopener noreferrer">Pay the activity fee<span class="visually-hidden"> for new Scouts, opens Square in a new tab</span></a>
           </li>
           <li>
             <h3>Hand in the health forms</h3>
-            <p class="step-note">Scouting America requires a paper health record before a child joins in. Forms A, B1 and B2 signed by hand, with copies of an immunization record and insurance card, in a sealed envelope to your den leader.</p>
-            <p class="step-note">Anyone coming on a weekend trip needs one, adults included.</p>
+            <p class="step-note">Your child needs a paper health record before taking part in activities.</p>
+            <ul class="check">
+              <li>Forms A, B1 and B2, signed by hand</li>
+              <li>A copy of their immunization record</li>
+              <li>A copy of your insurance card</li>
+            </ul>
+            <p class="step-note">Put it all in a sealed envelope and give it to your child&rsquo;s den leader. Anyone attending a weekend trip needs their own health record, adults included.</p>
             <a class="button button-outline" data-track="health-forms" href="https://filestore.scouting.org/filestore/HealthSafety/pdf/680-001_AB.pdf" target="_blank" rel="noopener noreferrer">Download the health forms<span class="visually-hidden"> (PDF, opens in a new tab)</span></a>
           </li>
         </ol>
+        <p class="done">That is everything. Your den leader will be in touch about the first meeting.</p>
       </section>
 
       <section class="pay-path" id="returning" aria-labelledby="returning-heading">
-        <h2 id="returning-heading">Welcome back<span class="path-label">Returning Scouts: renew and pay</span></h2>
+        <h2 id="returning-heading">Returning Scouts: renew and pay<span class="path-label">Welcome back!</span></h2>
 
         <ol class="steps">
           <li>
             <h3>Renew for 2026-2027</h3>
-            <p class="step-amount">$305<sup class="amt-star">*</sup></p>
-            <p class="step-note">Covers the $160 Scouting America membership and the $145 pack activity fee. The pack renews the membership on your behalf. One per Scout.</p>
-            <p class="step-note"><em>Scout Life</em> magazine is offered at checkout, at $15 for the year.</p>
-            <div class="aside-note aside-inline">
-              <p><strong>Already renewed the membership yourself?</strong> Then only the pack&rsquo;s activity fee is due, so use the <a data-track="returning-already-renewed" href="https://cub-scout-pack-615.square.site/product/pack-615-annual-activity-fee-for-new-scouts-2026-2027-/K3UUQYSECRKVDFJDXLRHYE5B" target="_blank" rel="noopener noreferrer">new Scout activity fee<span class="visually-hidden"> (opens Square in a new tab)</span></a> instead, which is pack fees only despite the name.</p>
-            </div>
-            <a class="button button-primary" data-track="returning-renew" href="https://cub-scout-pack-615.square.site/product/pack-615-annual-activity-fee-for-returning-scouts-2026-2027-/QRHUWHSKV26BSYASTLAPGGGP" target="_blank" rel="noopener noreferrer">Renew and pay<span class="visually-hidden"> the returning Scout fee, opens Square in a new tab</span></a>
+            <p class="step-amount">$305</p>
+            <p class="aid-link"><a data-track="cost-help-returning" href="#help">Help with the cost</a></p>
+            <p class="step-note">Covers the $160 Scouting America membership and the $145 pack activity fee. We renew your child&rsquo;s membership for you, so you can ignore the renewal reminders Scouting America sends. You can add a year of <em>Scout Life</em> magazine for $15 at Square checkout.</p>
+            <a class="button button-primary" data-track="returning-renew" href="https://cub-scout-pack-615.square.site/product/pack-615-annual-activity-fee-for-returning-scouts-2026-2027-/QRHUWHSKV26BSYASTLAPGGGP" target="_blank" rel="noopener noreferrer">Pay $305<span class="visually-hidden">, membership renewal and activity fee, opens Square in a new tab</span></a>
+
+            <p class="alt-route">Already renewed with Scouting America yourself? Then you owe the activity fee only. <a data-track="returning-already-renewed" href="https://cub-scout-pack-615.square.site/product/pack-615-annual-activity-fee-for-new-scouts-2026-2027-/K3UUQYSECRKVDFJDXLRHYE5B" target="_blank" rel="noopener noreferrer">Pay $145 instead<span class="visually-hidden"> (opens Square in a new tab)</span></a>. Square labels that one &ldquo;new Scout&rdquo;, and it is the right one.</p>
           </li>
           <li>
             <h3>Hand in the health forms</h3>
-            <p class="step-note">Scouting America requires a paper health record before a child joins in. Forms A, B1 and B2 signed by hand, with copies of an immunization record and insurance card, in a sealed envelope to your den leader.</p>
-            <p class="step-note">Anyone coming on a weekend trip needs one, adults included.</p>
+            <p class="step-note">Your child needs a paper health record before taking part in activities.</p>
+            <ul class="check">
+              <li>Forms A, B1 and B2, signed by hand</li>
+              <li>A copy of their immunization record</li>
+              <li>A copy of your insurance card</li>
+            </ul>
+            <p class="step-note">Put it all in a sealed envelope and give it to your child&rsquo;s den leader. Anyone attending a weekend trip needs their own health record, adults included.</p>
             <a class="button button-outline" data-track="health-forms" href="https://filestore.scouting.org/filestore/HealthSafety/pdf/680-001_AB.pdf" target="_blank" rel="noopener noreferrer">Download the health forms<span class="visually-hidden"> (PDF, opens in a new tab)</span></a>
           </li>
         </ol>
-
-        <div class="aside-note">
-          <p>Scouting America sends its own renewal emails. The pack handles the renewal, so they can be ignored.</p>
-        </div>
+        <p class="done">That is everything. See you at the first meeting.</p>
 
       </section>
 
+      <section class="pay-path" id="help" aria-labelledby="help-heading">
+        <h2 id="help-heading">Help with the cost</h2>
+        <p class="path-sub">Pack 615 keeps a fund for exactly this.</p>
+
+        <div class="help-card">
+          <p><strong>The pack&rsquo;s activity fee.</strong> Take $25, $50 or $75 off at the Square checkout. You choose it yourself, at the moment you pay. No application and no explanation needed.</p>
+          <p><strong>The Scouting America fee.</strong> There is no reduced option on their site, so email us before you pay the $160 and we will work it out with you.</p>
+          <p><strong>If that still is not enough.</strong> A bigger gap than $75, or uniforms, gear and trip tickets on top. <a data-track="cost-help-email-2" href="mailto:pack615cubscouts@gmail.com">Email us</a>. We would much rather hear from you.</p>
+          <p class="help-mail"><a data-track="cost-help-email" href="mailto:pack615cubscouts@gmail.com">pack615cubscouts@gmail.com</a></p>
+        </div>
+
+        <div class="give-card">
+          <p>The fund is paid for by other families in the pack and by people around Melrose. It exists so that what a family can afford never decides whether their kid gets to be a Cub Scout.</p>
+          <a class="button button-outline" data-track="pay-financial-aid" href="https://cub-scout-pack-615.square.site/product/pack-financial-aid-donation/4" target="_blank" rel="noopener noreferrer">Give any amount to the fund<span class="visually-hidden"> (opens Square in a new tab)</span></a>
+        </div>
+      </section>
+
       <section class="pay-path" id="bigtrip" aria-labelledby="bigtrip-heading">
-        <h2 id="bigtrip-heading">The Big Trip</h2>
-        <p class="path-sub">One night inside a museum. The highlight of the pack year.</p>
+        <h2 id="bigtrip-heading">The Big Trip: an overnight at the EcoTarium <span class="opt-tag">optional</span></h2>
 
         <div class="trip-card">
           <figure class="trip-figure">
@@ -232,27 +289,17 @@
             </picture>
           </figure>
           <div class="trip-body">
-            <h3>EcoTarium sleepover, Worcester</h3>
-            <p class="step-amount">$70 <span class="amt-sub">per person coming</span></p>
-            <p>Friday January 8 at 5:30pm to Saturday January 9, 2027 at 9:30am. This year&rsquo;s theme is Stars &amp; Space: the planetarium, a trip to Mars, launching a rocket, and a look through a telescope if the sky is clear. An evening snack and a continental breakfast are included, and so is free admission to come back another day.</p>
-            <p>Each Scout is accompanied by one adult, so most families need two tickets. No siblings. Tickets are limited, non-refundable, and separate from the activity fee.</p>
+            <dl class="facts">
+              <div><dt>When</dt><dd>Friday January 8, 5:30pm to Saturday January 9, 2027, 9:30am</dd></div>
+              <div><dt>Where</dt><dd>The EcoTarium, Worcester</dd></div>
+              <div><dt>Price</dt><dd>$70 per Scout or adult. Not covered by the activity fee.</dd></div>
+              <div><dt>Who</dt><dd>A ticket for each Scout, plus one adult per family. No siblings who are not Scouts.</dd></div>
+              <div><dt>Tickets</dt><dd>Limited, and non-refundable</dd></div>
+            </dl>
+            <p>This year&rsquo;s theme is Stars &amp; Space, with the planetarium, a trip to Mars and a rocket launch. There&rsquo;s also telescope viewing if the sky is clear. Your ticket includes an evening snack, continental breakfast and free admission for another day.</p>
             <a class="button button-primary" data-track="pay-ecotarium" href="https://cub-scout-pack-615.square.site/product/big-trip-2026-ecotarium-sleepover-january-8/7EASFEZSZ256WSUDQSMFPQBF" target="_blank" rel="noopener noreferrer">Book the Big Trip<span class="visually-hidden"> (opens Square in a new tab)</span></a>
           </div>
         </div>
-      </section>
-
-      <section class="pay-path" id="donate" aria-labelledby="donate-heading">
-        <h2 id="donate-heading">Donate</h2>
-        <p class="path-sub">The reduced rates on this page are paid for by other families. This is that money.</p>
-
-        <ol class="steps single">
-          <li>
-            <h3>Donate to the financial aid fund</h3>
-            <p class="step-amount">You choose the amount</p>
-            <p class="step-note">When a family picks $25, $50 or $75 off at checkout, this fund covers the difference. It is given by Pack 615 families and neighbours, and it pays for fees, uniforms and activities.</p>
-            <a class="button button-outline" data-track="pay-financial-aid" href="https://cub-scout-pack-615.square.site/product/pack-financial-aid-donation/4" target="_blank" rel="noopener noreferrer">Donate<span class="visually-hidden"> to the financial aid fund, opens Square in a new tab</span></a>
-          </li>
-        </ol>
       </section>
 
 
@@ -264,14 +311,14 @@
           <li>
             <h3>Register as an adult volunteer</h3>
             <p class="step-amount">$80 <span class="amt-sub">the pack pays you back</span></p>
-            <p class="step-note">Adults in a named role, such as a den leader, register with Scouting America as well. The fee covers a background check and insurance, and <strong>the pack reimburses it</strong>.</p>
-            <p class="step-note">Coming along to meetings and events needs none of this. On the signup it is the &ldquo;applying for myself&rdquo; option, or &ldquo;both&rdquo; alongside a child.</p>
+            <p class="step-note">If you take an official role, such as den leader for a group of children in the same grade, register with Scouting America. The $80 fee covers a background check and insurance. Pay it during the application, and Pack 615 will reimburse you.</p>
+            <p class="step-note">You can attend meetings and events without registering as a volunteer. In the application, choose &lsquo;applying for myself&rsquo;. Choose &lsquo;both&rsquo; to register an adult and a child.</p>
             <a class="button button-outline" data-track="volunteer-register" href="https://my.scouting.org/VES/OnlineReg/1.0.0/?tu=UF-MB-227paa0615" target="_blank" rel="noopener noreferrer">Register as a volunteer<span class="visually-hidden"> (opens Scouting America in a new tab)</span></a>
           </li>
         </ol>
 
         <div class="aside-note">
-          <p>There is no hurry. Most people come along for a while first.</p>
+          <p>Most families attend meetings for a while before volunteering.</p>
         </div>
       </section>
 
@@ -288,24 +335,27 @@
             <tbody>
               <tr><td>Scouting America membership</td><td>Scouting America</td><td>$160</td></tr>
               <tr><td>Pack 615 activity fee</td><td>Pack 615</td><td>$145</td></tr>
-              <tr class="row-total"><td>Standard cost <strong>per Scout</strong><br><span class="row-sub">A second Scout in the family is another $305.</span></td><td></td><td>$305</td></tr>
+              <tr class="row-total"><td>Standard cost <strong>per Scout</strong></td><td></td><td>$305</td></tr>
               <tr><td><em>Scout Life</em> magazine, optional<br><span class="row-sub">New families opt in at Scouting America; returning families in the Square checkout.</span></td><td>Scouting America</td><td>$15</td></tr>
-              <tr><td>Big Trip ticket, optional<br><span class="row-sub">Per person. Every Scout needs an adult with them.</span></td><td>Pack 615</td><td>$70</td></tr>
-              <tr><td>Adult volunteer registration, optional<br><span class="row-sub">Only for a volunteer role. The pack reimburses it.</span></td><td>Scouting America</td><td>$80</td></tr>
+              <tr><td>Big Trip ticket, optional<br><span class="row-sub">Per person. One adult per family.</span></td><td>Pack 615</td><td>$70</td></tr>
+              <tr><td>Adult volunteer registration, optional<br><span class="row-sub">Only for a named role. The pack pays you back.</span></td><td>Scouting America</td><td>$80</td></tr>
+              <tr><td>Uniform<br><span class="row-sub">Roughly $65 to $155 by grade. Hand-me-downs available, and the pack t-shirt is included.</span></td><td>Scout Shop</td><td>extra</td></tr>
               <tr class="row-credit"><td>Reduced rate, if you need it<br><span class="row-sub">Chosen by you at checkout. No questions, no forms.</span></td><td></td><td>up to $75 off</td></tr>
             </tbody>
           </table>
         </div>
 
         <div class="aside-note">
-          <p>Pack 615 is run by parent volunteers. The activity fee pays for badges and awards, Pinewood Derby cars, campsite fees and materials for den meetings.</p>
+          <p>Pack 615 is run by parent volunteers. The activity fee pays for badges and awards, wooden cars for the Pinewood Derby race, campsite fees and materials for small-group meetings.</p>
         </div>
       </section>
 
+      <p class="bring" id="bring">Coming to Registration Night on September 18? Bring the signed health forms. You can pay there or online, whichever suits.</p>
+
       <div class="pay-foot">
-        <p><sup class="amt-star">*</sup> Reduced rates of $25, $50 and $75 off are built into the checkout on both activity fees, chosen at the point of payment. If none of them are enough, <a data-track="cost-help-contact" href="mailto:pack615cubscouts@gmail.com">email us</a> and we will find a way.</p>
-        <p>Card payments are handled by Square.</p>
-        <p>Questions to <a data-track="email-contact-register-foot" href="mailto:pack615cubscouts@gmail.com">pack615cubscouts@gmail.com</a>. Each Square page carries the full detail and is the one to trust if anything here looks out of date.</p>
+        <p>Pack 615 families and neighbors fund these reduced rates and help cover fees, uniforms and activities. You can <a data-track="jump-donate" href="#help">support financial aid</a>.</p>
+        <p>Payments to Pack 615 go through Square.</p>
+        <p>We&rsquo;re happy to help: <a data-track="email-contact-register-foot" href="mailto:pack615cubscouts@gmail.com">pack615cubscouts@gmail.com</a>. The Square pages have the latest payment details.</p>
       </div>
     </main>
 
