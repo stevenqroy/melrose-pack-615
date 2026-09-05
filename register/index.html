@@ -22,10 +22,19 @@
       .fork-card span { display: block; margin-top: .3rem; color: var(--muted); font-size: .95rem; }
       .fork-card em { display: block; margin-top: .8rem; color: var(--pine); font-size: .9rem; font-weight: 800; font-style: normal; }
 
-      .jump-label { margin: 1.9rem 0 .7rem; color: var(--muted); font-size: .82rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
-      .jump-nav { display: flex; flex-wrap: wrap; gap: .6rem; margin: 0; padding: 0; list-style: none; }
-      .jump-nav a { display: inline-flex; align-items: center; min-height: 2.7rem; padding: .5rem 1.05rem; border: 1px solid var(--line); border-radius: 2rem; background: var(--white); color: var(--pine-deep); font-size: .9rem; font-weight: 800; text-decoration: none; transition: background .18s ease, border-color .18s ease; }
-      .jump-nav a:hover { border-color: var(--pine); background: var(--cream); }
+      /* Contents line. This was a row of pill buttons, which read as filters or
+         tags rather than as links, and competed with the two fork cards
+         directly above it. The fork is the decision on this page; this is a
+         table of contents and should look like one. */
+      .jump { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem 1.1rem; margin: 2rem 0 0; padding: 1rem 0 0; border-top: 1px solid var(--line); }
+      .jump-label { flex: 0 0 auto; color: var(--muted); font-size: .8rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+      .jump-list { display: flex; flex-wrap: wrap; align-items: center; gap: 0 .6rem; margin: 0; padding: 0; list-style: none; }
+      /* Separator sits in normal flow rather than absolutely positioned: when
+         the list wraps on a phone, an absolute dot floated between the lines. */
+      .jump-list li { display: flex; align-items: center; gap: .6rem; }
+      .jump-list li + li::before { content: "\00B7"; color: var(--line); font-weight: 700; }
+      .jump-list a { display: inline-flex; align-items: center; min-height: 2.75rem; color: var(--pine-deep); font-size: .95rem; font-weight: 750; text-decoration: none; border-bottom: 1px solid transparent; }
+      .jump-list a:hover { border-bottom-color: var(--pine); }
 
       .trip-card { display: grid; gap: 0; border: 1px solid var(--line); border-radius: .9rem; background: var(--white); box-shadow: 0 6px 22px rgba(28, 43, 45, .06); overflow: hidden; }
       @media (min-width: 760px) { .trip-card { grid-template-columns: 22rem 1fr; } }
@@ -136,13 +145,15 @@
         </li>
       </ul>
 
-      <p class="jump-label">Also on this page</p>
-      <ul class="jump-nav">
-        <li><a data-track="jump-bigtrip" href="#bigtrip">The Big Trip sleepover</a></li>
-        <li><a data-track="jump-volunteering" href="#volunteering">Volunteering</a></li>
-        <li><a data-track="jump-donate" href="#donate">Donate</a></li>
-        <li><a data-track="jump-breakdown" href="#breakdown">Where your money goes</a></li>
-      </ul>
+      <nav class="jump" aria-label="Also on this page">
+        <span class="jump-label">Also on this page</span>
+        <ul class="jump-list">
+          <li><a data-track="jump-bigtrip" href="#bigtrip">The Big Trip sleepover</a></li>
+          <li><a data-track="jump-volunteering" href="#volunteering">Volunteering</a></li>
+          <li><a data-track="jump-donate" href="#donate">Donate</a></li>
+          <li><a data-track="jump-breakdown" href="#breakdown">Where your money goes</a></li>
+        </ul>
+      </nav>
 
       <section class="pay-path" id="new" aria-labelledby="new-heading">
         <h2 id="new-heading">Welcome to the pack!<span class="path-label">New Scouts: register and pay</span></h2>
@@ -152,7 +163,7 @@
           <li>
             <h3>Join Scouting America</h3>
             <p class="step-amount">$160 <span class="amt-sub">paid to Scouting America</span></p>
-            <p class="step-note">This registers your child as a Cub Scout. It goes to Scouting America, not to the pack. The link opens Pack 615&rsquo;s own signup, so you do not have to search for us.</p>
+            <p class="step-note">This registers your child as a Cub Scout. It goes to Scouting America, not to the pack.</p>
             <p class="step-note"><strong>Choose &ldquo;I&rsquo;m applying for a child / youth&rdquo;.</strong> The other two options are for adults, and you do not need either one to sign your child up. See <a class="text-link" href="#volunteering">volunteering</a> below. Check the unit says <strong>Pack 0615 Melrose Highlands Congregational Church</strong> before you pay.</p>
             <p class="step-note">Afterwards you will get an email inviting you to Scoutbook. Accept it. That is where your child&rsquo;s badges and progress are recorded, and where you can see what they are working towards.</p>
             <a class="button button-primary" data-track="new-step-1-scouting-america" href="https://my.scouting.org/VES/OnlineReg/1.0.0/?tu=UF-MB-227paa0615" target="_blank" rel="noopener noreferrer">Register with Scouting America<span class="visually-hidden"> (opens in a new tab)</span></a>
