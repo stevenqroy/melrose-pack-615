@@ -57,9 +57,6 @@
          items. It carries one, so the reason is gone and the pack name stays. */
       .pay-nav a { display: inline-flex; align-items: center; min-height: 2.75rem; padding: .5rem .8rem; white-space: nowrap; border-radius: .45rem; color: var(--ink); text-decoration: none; }
       .pay-nav a:hover { background: var(--cream); }
-      .nav-short { display: inline; }
-      .nav-long { display: none; }
-      @media (min-width: 560px) { .nav-short { display: none; } .nav-long { display: inline; } }
       .pay-path > h2 { margin: 0 0 .3rem; font-family: var(--display); font-size: 1.85rem; font-weight: 700; letter-spacing: -.01em; }
       .pay-path > .path-sub { margin: 0 0 1.4rem; color: var(--muted); font-size: 1rem; }
 
@@ -160,7 +157,7 @@
       <div class="header-inner">
         <a class="brand" href="/"><img src="../assets/cub-scouts-logo-black.png" alt=""><span class="brand-name">Melrose Cub <span class="brand-break">Scout Pack 615</span></span></a>
         <nav class="pay-nav" aria-label="Primary navigation">
-          <a class="nav-plain" href="/"><span class="nav-long">Back to the main page</span><span class="nav-short">Home</span></a>
+          <a class="nav-plain" href="/">Home</a>
         </nav>
       </div>
     </header>
