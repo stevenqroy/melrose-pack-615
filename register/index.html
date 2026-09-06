@@ -16,11 +16,12 @@
 
       .pay-fork { display: grid; gap: 1rem; margin: 1.9rem 0 0; padding: 0; list-style: none; }
       @media (min-width: 700px) { .pay-fork { grid-template-columns: repeat(2, 1fr); } }
-      .fork-card { display: block; padding: 1.4rem 1.5rem; border: 2px solid var(--pine); border-radius: .9rem; background: var(--white); color: var(--ink); text-decoration: none; transition: background .18s ease, transform .18s ease; }
+      .pay-fork li { display: flex; }
+      .fork-card { display: flex; flex-direction: column; width: 100%; padding: 1.4rem 1.5rem; border: 2px solid var(--pine); border-radius: .9rem; background: var(--white); color: var(--ink); text-decoration: none; transition: background .18s ease, transform .18s ease; }
       .fork-card:hover { background: var(--cream); transform: translateY(-2px); }
       .fork-card strong { display: block; font-family: var(--display); font-size: 1.35rem; font-weight: 700; line-height: 1.2; }
       .fork-card span { display: block; margin-top: .3rem; color: var(--muted); font-size: .95rem; }
-      .fork-card em { display: block; margin-top: .8rem; color: var(--pine); font-size: .9rem; font-weight: 800; font-style: normal; }
+      .fork-card em { display: block; margin-top: auto; padding-top: .8rem; color: var(--pine); font-size: .9rem; font-weight: 800; font-style: normal; }
 
       /* Contents line. This was a row of pill buttons, which read as filters or
          tags rather than as links, and competed with the two fork cards
@@ -173,20 +174,20 @@
         <h1>Registration</h1>
       </div>
 
-      <p class="total-line"><strong>2026-2027 registration and activity fees: $305 per Scout.</strong> <a data-track="cost-help-top" href="#help">Help with the cost</a></p>
+      <p class="total-line"><strong>2026-2027 registration and activity fees: $305/yr per Scout.</strong> <a data-track="cost-help-top" href="#help">Help with the cost</a></p>
 
       <ul class="pay-fork">
         <li>
           <a class="fork-card" data-track="choose-new" href="#new">
             <strong>New to Pack 615</strong>
-            <span>Your child has not been a Cub Scout with us before.</span>
+            <span>Your child is new to Pack 615 or joining Cub Scouts for the first time.</span>
             <em>Three steps &rarr;</em>
           </a>
         </li>
         <li>
           <a class="fork-card" data-track="choose-returning" href="#returning">
             <strong>Already in Pack 615</strong>
-            <span>Your child was with us last year and is coming back.</span>
+            <span>Your child was with us last year and is returning.</span>
             <em>Two steps &rarr;</em>
           </a>
         </li>
@@ -198,34 +199,32 @@
         <ol class="steps">
           <li>
             <h3>Join Scouting America</h3>
-            <p class="step-amount">$160 <span class="amt-sub">paid to Scouting America</span></p>
+            <p class="step-amount">$160/yr <span class="amt-sub">paid to Scouting America</span></p>
             <p class="aid-link"><a data-track="cost-help-national" href="#help">Help with the cost</a></p>
-            <p class="step-note"><strong>This one goes to Scouting America, not to the pack.</strong> You&rsquo;ll register your child and pay on their website. The child or youth application lists our group as Pack 0615 Melrose Highlands Congregational Church, and the adult options are for <a class="text-link" data-track="jump-volunteering" href="#volunteering">volunteers</a>.</p>
-            <p class="step-note">The application also offers <em>Scout Life</em> magazine for $15 a year, if you want it.</p>
-            <p class="step-note">Scoutbook keeps a record of your child&rsquo;s badges and progress. You&rsquo;ll get an invitation by email.</p>
+            <p class="step-note">Scouting America is our national scouting organization, and membership is required to join the pack. Register directly on Scouting America&rsquo;s website by completing a youth application. Double-check that our unit is selected as <strong>Pack 0615 Melrose Highlands Congregational Church</strong> (our chartering organization).</p>
+            <p class="step-note"><strong>Optional add-on:</strong> You can add a subscription to <em>Scout Life</em> magazine for $15/year during registration if you&rsquo;d like.</p>
+            <p class="step-note">After registering here, you will receive an invitation to join Scoutbook, the centralized portal that keeps a record of your child&rsquo;s badges, awards, and progress.</p>
             <a class="button button-primary" data-track="new-step-1-scouting-america" href="https://my.scouting.org/VES/OnlineReg/1.0.0/?tu=UF-MB-227paa0615" target="_blank" rel="noopener noreferrer">Register with Scouting America<span class="visually-hidden"> (opens in a new tab)</span></a>
           </li>
           <li>
             <h3>Pay Pack 615&rsquo;s activity fee</h3>
-            <p class="step-amount">$145</p>
+            <p class="step-amount">$145/yr</p>
             <p class="aid-link"><a data-track="cost-help-new" href="#help">Help with the cost</a></p>
             <p class="step-note">This fee supports Pack 615 and covers badges, a wooden car kit for the Pinewood Derby race, campsite fees and meeting materials.</p>
-            <p class="step-note">The optional <a class="text-link" data-track="jump-bigtrip" href="#bigtrip">Big Trip</a> is booked separately. You can also see the <a class="text-link" data-track="jump-breakdown" href="#breakdown">full cost breakdown</a>.</p>
+            <p class="step-note">The optional <a class="text-link" data-track="jump-bigtrip" href="#bigtrip">Big Trip</a> is booked separately.</p>
             <a class="button button-primary" data-track="new-step-2-activity-fee" href="https://cub-scout-pack-615.square.site/product/pack-615-annual-activity-fee-for-new-scouts-2026-2027-/K3UUQYSECRKVDFJDXLRHYE5B" target="_blank" rel="noopener noreferrer">Pay the activity fee<span class="visually-hidden"> for new Scouts, opens Square in a new tab</span></a>
           </li>
           <li>
             <h3>Hand in the health forms</h3>
             <p class="step-note">Your child needs a paper health record before taking part in activities.</p>
             <ul class="check">
-              <li>Forms A, B1 and B2, signed by hand</li>
-              <li>A copy of their immunization record</li>
-              <li>A copy of your insurance card</li>
+              <li>Forms A, B1, and B2, signed by hand</li>
             </ul>
-            <p class="step-note">Put it all in a sealed envelope and give it to your child&rsquo;s den leader. Anyone attending a weekend trip needs their own health record, adults included.</p>
+            <p class="step-note">Slip your completed forms into an envelope and drop them off with your child&rsquo;s den leader. Alongside your Scout, please complete health forms for anyone, including adults and siblings, attending weekend or overnight activities.</p>
             <a class="button button-outline" data-track="health-forms" href="https://filestore.scouting.org/filestore/HealthSafety/pdf/680-001_AB.pdf" target="_blank" rel="noopener noreferrer">Download the health forms<span class="visually-hidden"> (PDF, opens in a new tab)</span></a>
           </li>
         </ol>
-        <p class="done">That is everything. Your den leader will be in touch about the first meeting.</p>
+        <p class="done">That&rsquo;s everything! Your den leader will be in touch with a welcome email and details regarding the first meeting.</p>
       </section>
 
       <section class="pay-path" id="returning" aria-labelledby="returning-heading">
@@ -234,42 +233,40 @@
         <ol class="steps">
           <li>
             <h3>Renew for 2026-2027</h3>
-            <p class="step-amount">$305</p>
+            <p class="step-amount">$305/yr</p>
             <p class="aid-link"><a data-track="cost-help-returning" href="#help">Help with the cost</a></p>
-            <p class="step-note">Covers the $160 Scouting America membership and the $145 pack activity fee. We renew your child&rsquo;s membership for you, so you can ignore the renewal reminders Scouting America sends. You can add a year of <em>Scout Life</em> magazine for $15 at Square checkout.</p>
-            <a class="button button-primary" data-track="returning-renew" href="https://cub-scout-pack-615.square.site/product/pack-615-annual-activity-fee-for-returning-scouts-2026-2027-/QRHUWHSKV26BSYASTLAPGGGP" target="_blank" rel="noopener noreferrer">Pay $305<span class="visually-hidden">, membership renewal and activity fee, opens Square in a new tab</span></a>
+            <p class="step-note">Covers the $160 Scouting America membership and the $145 pack activity fee. We will renew your child&rsquo;s membership for you, so you can ignore the renewal reminders Scouting America sends. You can optionally add a year of <em>Scout Life</em> magazine for $15 at Square checkout.</p>
+            <a class="button button-primary" data-track="returning-renew" href="https://cub-scout-pack-615.square.site/product/pack-615-annual-activity-fee-for-returning-scouts-2026-2027-/QRHUWHSKV26BSYASTLAPGGGP" target="_blank" rel="noopener noreferrer">Pay $305/yr<span class="visually-hidden">, membership renewal and activity fee, opens Square in a new tab</span></a>
 
-            <p class="alt-route">Already renewed with Scouting America yourself? Then you owe the activity fee only. <a data-track="returning-already-renewed" href="https://cub-scout-pack-615.square.site/product/pack-615-annual-activity-fee-for-new-scouts-2026-2027-/K3UUQYSECRKVDFJDXLRHYE5B" target="_blank" rel="noopener noreferrer">Pay $145 instead<span class="visually-hidden"> (opens Square in a new tab)</span></a>. Square labels that one &ldquo;new Scout&rdquo;, and it is the right one.</p>
+            <p class="alt-route">Already renewed with Scouting America yourself? Then you only owe the activity fee. <a data-track="returning-already-renewed" href="https://cub-scout-pack-615.square.site/product/pack-615-annual-activity-fee-for-new-scouts-2026-2027-/K3UUQYSECRKVDFJDXLRHYE5B" target="_blank" rel="noopener noreferrer">Pay $145 instead<span class="visually-hidden"> (opens Square in a new tab)</span></a>. You&rsquo;ll see this labeled as &ldquo;New Scout&rdquo; in the Square store, which is the correct option to select for paying pack activity fees only.</p>
           </li>
           <li>
             <h3>Hand in the health forms</h3>
             <p class="step-note">Your child needs a paper health record before taking part in activities.</p>
             <ul class="check">
-              <li>Forms A, B1 and B2, signed by hand</li>
-              <li>A copy of their immunization record</li>
-              <li>A copy of your insurance card</li>
+              <li>Forms A, B1, and B2, signed by hand</li>
             </ul>
-            <p class="step-note">Put it all in a sealed envelope and give it to your child&rsquo;s den leader. Anyone attending a weekend trip needs their own health record, adults included.</p>
+            <p class="step-note">Slip your completed forms into an envelope and drop them off with your child&rsquo;s den leader. Alongside your Scout, please complete health forms for anyone, including adults and siblings, attending weekend or overnight activities.</p>
             <a class="button button-outline" data-track="health-forms" href="https://filestore.scouting.org/filestore/HealthSafety/pdf/680-001_AB.pdf" target="_blank" rel="noopener noreferrer">Download the health forms<span class="visually-hidden"> (PDF, opens in a new tab)</span></a>
           </li>
         </ol>
-        <p class="done">That is everything. See you at the first meeting.</p>
+        <p class="done">That&rsquo;s everything! See you at the first meeting!</p>
 
       </section>
 
       <section class="pay-path" id="help" aria-labelledby="help-heading">
         <h2 id="help-heading">Help with the cost</h2>
-        <p class="path-sub">Pack 615 keeps a fund for exactly this.</p>
+        <p class="path-sub">Financial aid and sliding scale dues options are available directly at checkout in our store, or reach out privately. We make sure every kid can participate regardless of ability to pay.</p>
 
         <div class="help-card">
-          <p><strong>The pack&rsquo;s activity fee.</strong> Take $25, $50 or $75 off at the Square checkout. You choose it yourself, at the moment you pay. No application and no explanation needed.</p>
-          <p><strong>The Scouting America fee.</strong> There is no reduced option on their site, so email us before you pay the $160 and we will work it out with you.</p>
-          <p><strong>If that still is not enough.</strong> A bigger gap than $75, or uniforms, gear and trip tickets on top. <a data-track="cost-help-email-2" href="mailto:pack615cubscouts@gmail.com">Email us</a>. We would much rather hear from you.</p>
+          <p><strong>Pack activity fee.</strong> Select $25, $50, or $75 off directly at Square checkout. You choose it yourself at the moment you pay, with no application and no explanation needed.</p>
+          <p><strong>Scouting America fee.</strong> Because Scouting America&rsquo;s national registration portal does not offer an automated sliding scale at checkout, please send us a quick email before paying the $160 national fee and we will handle it with you directly.</p>
+          <p><strong>Additional support.</strong> If you need assistance beyond $75, or need help covering uniforms, camping gear, or trip tickets, please <a data-track="cost-help-email-2" href="mailto:pack615cubscouts@gmail.com">reach out anytime</a>. We are always here to help.</p>
           <p class="help-mail"><a data-track="cost-help-email" href="mailto:pack615cubscouts@gmail.com">pack615cubscouts@gmail.com</a></p>
         </div>
 
         <div class="give-card">
-          <p>The fund is paid for by other families in the pack and by people around Melrose. It exists so that what a family can afford never decides whether their kid gets to be a Cub Scout.</p>
+          <p><strong>Donate:</strong> The fund is paid for by other families in the pack and by people around Melrose. It exists so that what a family can afford never decides whether their kid gets to be a Cub Scout.</p>
           <a class="button button-outline" data-track="pay-financial-aid" href="https://cub-scout-pack-615.square.site/product/pack-financial-aid-donation/4" target="_blank" rel="noopener noreferrer">Give any amount to the fund<span class="visually-hidden"> (opens Square in a new tab)</span></a>
         </div>
       </section>
@@ -289,65 +286,15 @@
             <dl class="facts">
               <div><dt>When</dt><dd>Friday January 8, 5:30pm to Saturday January 9, 2027, 9:30am</dd></div>
               <div><dt>Where</dt><dd>The EcoTarium, Worcester</dd></div>
-              <div><dt>Price</dt><dd>$70 per Scout or adult. Not covered by the activity fee.</dd></div>
-              <div><dt>Who</dt><dd>A ticket for each Scout, plus one adult per family. No siblings who are not Scouts.</dd></div>
-              <div><dt>Tickets</dt><dd>Limited, and non-refundable</dd></div>
+              <div><dt>Price</dt><dd>$70 per Scout or adult <em>(separate from your annual pack fees)</em></dd></div>
+              <div><dt>Who</dt><dd>Currently capped at any Scout and 1 adult per family. We hope to open more tickets based on capacity at a later date!</dd></div>
             </dl>
-            <p>This year&rsquo;s theme is Stars &amp; Space, with the planetarium, a trip to Mars and a rocket launch. There&rsquo;s also telescope viewing if the sky is clear. Your ticket includes an evening snack, continental breakfast and free admission for another day.</p>
+            <p>This year&rsquo;s theme is Stars &amp; Space, with the planetarium, a trip to Mars and a rocket launch. There&rsquo;s also telescope viewing if the sky is clear. Your ticket includes an evening snack, continental breakfast and free admission for another day!</p>
             <a class="button button-primary" data-track="pay-ecotarium" href="https://cub-scout-pack-615.square.site/product/big-trip-2026-ecotarium-sleepover-january-8/7EASFEZSZ256WSUDQSMFPQBF" target="_blank" rel="noopener noreferrer">Book the Big Trip<span class="visually-hidden"> (opens Square in a new tab)</span></a>
           </div>
         </div>
       </section>
 
-
-      <section class="pay-path" id="volunteering" aria-labelledby="volunteering-heading">
-        <h2 id="volunteering-heading">Volunteering as an adult</h2>
-        <p class="path-sub">Optional.</p>
-
-        <ol class="steps single">
-          <li>
-            <h3>Register as an adult volunteer</h3>
-            <p class="step-amount">$80 <span class="amt-sub">the pack pays you back</span></p>
-            <p class="step-note">If you take an official role, such as den leader for a group of children in the same grade, register with Scouting America. The $80 fee covers a background check and insurance. Pay it during the application, and Pack 615 will reimburse you.</p>
-            <p class="step-note">You can attend meetings and events without registering as a volunteer. In the application, choose &lsquo;applying for myself&rsquo;. Choose &lsquo;both&rsquo; to register an adult and a child.</p>
-            <a class="button button-outline" data-track="volunteer-register" href="https://my.scouting.org/VES/OnlineReg/1.0.0/?tu=UF-MB-227paa0615" target="_blank" rel="noopener noreferrer">Register as a volunteer<span class="visually-hidden"> (opens Scouting America in a new tab)</span></a>
-          </li>
-        </ol>
-
-        <div class="aside-note">
-          <p>Most families attend meetings for a while before volunteering.</p>
-        </div>
-      </section>
-
-      <section class="pay-path" id="breakdown" aria-labelledby="breakdown-heading">
-        <h2 id="breakdown-heading">Cost breakdown</h2>
-        <p class="path-sub">Who receives each payment.</p>
-
-        <div class="table-scroll">
-          <table class="money-table">
-            <caption class="visually-hidden">Pack 615 costs for the 2026-2027 year, and who receives each payment.</caption>
-            <thead>
-              <tr><th scope="col">What</th><th scope="col">Goes to</th><th scope="col">Amount</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Scouting America membership</td><td>Scouting America</td><td>$160</td></tr>
-              <tr><td>Pack 615 activity fee</td><td>Pack 615</td><td>$145</td></tr>
-              <tr class="row-total"><td>Standard cost <strong>per Scout</strong></td><td></td><td>$305</td></tr>
-              <tr><td><em>Scout Life</em> magazine, optional<br><span class="row-sub">New families opt in at Scouting America; returning families in the Square checkout.</span></td><td>Scouting America</td><td>$15</td></tr>
-              <tr><td>Big Trip ticket, optional<br><span class="row-sub">Per person. One adult per family.</span></td><td>Pack 615</td><td>$70</td></tr>
-              <tr><td>Adult volunteer registration, optional<br><span class="row-sub">Only for a named role. The pack pays you back.</span></td><td>Scouting America</td><td>$80</td></tr>
-              <tr><td>Uniform<br><span class="row-sub">Roughly $65 to $155 by grade. Hand-me-downs available, and the pack t-shirt is included.</span></td><td>Scout Shop</td><td>extra</td></tr>
-              <tr class="row-credit"><td>Reduced rate, if you need it<br><span class="row-sub">Chosen by you at checkout. No questions, no forms.</span></td><td></td><td>up to $75 off</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="aside-note">
-          <p>Pack 615 is run by parent volunteers. The activity fee pays for badges and awards, wooden cars for the Pinewood Derby race, campsite fees and materials for small-group meetings.</p>
-        </div>
-      </section>
-
-      <p class="bring" id="bring">Coming to Registration Night on September 18? Bring the signed health forms. You can pay there or online, whichever suits.</p>
 
       <div class="pay-foot">
         <p>Pack 615 families and neighbors fund these reduced rates and help cover fees, uniforms and activities. You can <a data-track="jump-donate" href="#help">support financial aid</a>.</p>
